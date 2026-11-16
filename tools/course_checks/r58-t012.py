@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json
 import shutil
+import subprocess
 import tempfile
 import tomllib
 from pathlib import Path
@@ -31,6 +32,16 @@ def main() -> None:
     templates = list(EXERCISE.rglob("*.j2")) + list(EXERCISE.rglob("*.jinja"))
     if templates:
         raise AssertionError(f"Unexpected per-exercise Jinja template found: {templates}")
+    configlet = ROOT / "bin/configlet"
+    if not configlet.is_file():
+        fetch = subprocess.run(["bin/fetch-configlet"], cwd=ROOT, text=True,
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        if fetch.returncode:
+            raise RuntimeError(f"Could not fetch Configlet:\n{fetch.stdout}")
+    sync = subprocess.run([str(configlet), "sync", "--exercise", "ocr-numbers", "--tests"],
+                          cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if sync.returncode:
+        raise RuntimeError(f"Configlet test-metadata sync check failed:\n{sync.stdout}")
     with tempfile.TemporaryDirectory(prefix="r58-t012-source-") as temporary:
         root = Path(temporary)
         copies = []
@@ -40,6 +51,7 @@ def main() -> None:
             copies.append((target / config["files"]["test"][0]).read_bytes())
         assert copies[0] == copies[1], "Maintained JUnit source differs between clean copies"
     print("PASS: three canonical UUIDs map to the maintained JUnit test cases.")
+    print("PASS: Configlet sync check accepts the canonical metadata.")
     print("PASS: two fresh copies contain byte-identical Java test source.")
     print("NOTE: Configlet syncs tests.toml; the JUnit source is maintained by hand.")
 
