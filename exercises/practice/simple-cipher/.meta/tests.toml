@@ -4,11 +4,14 @@
 
 [b8bdfbe1-bea3-41bb-a999-b41403f2b15d]
 description = "Can encode"
+comment = "Keep: encoding ten a characters with a random key should return the first ten characters of that key because a represents a zero shift."
 
 [3dff7f36-75db-46b4-ab70-644b3f38b81c]
 description = "Can decode"
+comment = "Keep: decoding the first ten characters of the random key should return ten a characters, verifying decoding with the generated key."
 
 [8143c684-6df6-46ba-bd1f-dea8fcb5d265]
+comment = "Keep: encoding and then decoding the original plaintext with the same random-key cipher should recover the plaintext, verifying reversibility."
 description = "Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method"
 
 [defc0050-e87d-4840-85e4-51a1ab9dd6aa]
