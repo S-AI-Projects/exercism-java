@@ -74,8 +74,8 @@ def main():
             try:
                 require_success("deliberately failing reference",failure)
             except RuntimeError:
-                if "encodeEmpty" not in failure[1]["failed_test_names"]:
-                    raise AssertionError(f"Mutant did not fail expected encodeEmpty assertion: {failure[1]}")
+                if "empty string" not in failure[1]["failed_test_names"]:
+                    raise AssertionError(f"Mutant did not fail the enabled empty-string assertion: {failure[1]}")
             else:
                 raise AssertionError("Deliberately failing reference was incorrectly accepted")
             evidence["deliberate_failure"]={"return_code":failure[0],**failure[1],
