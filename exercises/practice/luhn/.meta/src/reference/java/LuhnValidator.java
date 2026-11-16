@@ -7,6 +7,8 @@ final class LuhnValidator {
     private static final Pattern SPACE_PATTERN = Pattern.compile("\\s+");
 
     boolean isValid(final String candidate) {
+        // For n input characters, sanitizing, reversing, scanning and summing each take O(n) time;
+        // the intermediate strings and digit list require O(n) auxiliary space.
         final String sanitizedCandidate = SPACE_PATTERN.matcher(candidate).replaceAll("");
 
         if (sanitizedCandidate.length() <= 1) {
