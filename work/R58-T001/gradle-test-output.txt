@@ -1,0 +1,35 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :compileJava
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+
+SimpleCipherTest > Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method SKIPPED
+
+SimpleCipherTest > Can decode SKIPPED
+
+SimpleCipherTest > Can encode PASSED
+
+SimpleCipherTest > Can double shift encode SKIPPED
+
+SimpleCipherTest > Key is made only of lowercase letters SKIPPED
+
+SimpleCipherTest > Can decode SKIPPED
+
+SimpleCipherTest > Can encode SKIPPED
+
+SimpleCipherTest > Can wrap on decode SKIPPED
+
+SimpleCipherTest > Can wrap on encode SKIPPED
+
+SimpleCipherTest > Can decode messages longer than the key SKIPPED
+
+SimpleCipherTest > Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method SKIPPED
+
+BUILD SUCCESSFUL in 8s
+3 actionable tasks: 3 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html

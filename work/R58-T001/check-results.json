@@ -1,0 +1,41 @@
+{
+  "exercise": "simple-cipher",
+  "configured_paths": {
+    "solution": [
+      "src/main/java/Cipher.java"
+    ],
+    "test": [
+      "src/test/java/SimpleCipherTest.java"
+    ],
+    "example": [
+      ".meta/src/reference/java/Cipher.java"
+    ],
+    "invalidator": [
+      "build.gradle"
+    ]
+  },
+  "canonical_cases_before": {
+    "total": 12,
+    "included": 12,
+    "excluded": 0
+  },
+  "canonical_cases_after": {
+    "total": 12,
+    "included": 12,
+    "excluded": 0
+  },
+  "test_results": {
+    "total": 11,
+    "skipped": 10,
+    "executed": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "checks": {
+    "gradle_exit_code_is_zero": true,
+    "at_least_one_test_executed": true,
+    "no_test_failures": true,
+    "test_reports_found": true
+  },
+  "gradle_exit_code": 0
+}
