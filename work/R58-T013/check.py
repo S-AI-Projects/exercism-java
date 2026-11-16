@@ -19,7 +19,7 @@ EXERCISE = ROOT / "exercises/practice/variable-length-quantity"
 CONFIG = EXERCISE / ".meta/config.json"
 REFERENCE = EXERCISE / ".meta/src/reference/java/VariableLengthQuantity.java"
 TEST_CLASS = "VariableLengthQuantityTest"
-TARGET_TEST = "testSmallestDoubleByte"
+TARGET_TEST = "smallest double byte"
 
 
 def require(condition: bool, message: str) -> None:
@@ -86,8 +86,8 @@ def main() -> int:
         mutant = copy_exercise(temp / "mutant")
         mutant_source = mutant / "src/main/java/VariableLengthQuantity.java"
         source_text = mutant_source.read_text()
-        require(source_text.count("number >>= 7;") == 1,
-                "Expected exactly one seven-bit shift in encodeSingleNumber")
+        require(source_text.count("number >>= 7;") == 2,
+                "Expected the two seven-bit shifts in encodeSingleNumber")
         mutant_source.write_text(source_text.replace("number >>= 7;", "number >>= 6;", 1))
         mutant_code, mutant_stats = run_gradle(mutant, "--tests",
                                                f"{TEST_CLASS}.{TARGET_TEST}")
@@ -104,7 +104,7 @@ def main() -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(results, indent=2) + "\n")
     print(json.dumps(results, indent=2))
-    print("PASS: original reference passes; the six-bit mutant is rejected by testSmallestDoubleByte.")
+    print("PASS: original reference passes; the six-bit mutant is rejected by the smallest double byte case.")
     return 0
 
 
