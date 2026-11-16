@@ -25,11 +25,15 @@ def copy_prepared(destination):
 def execute(destination, extra=()):
     process=subprocess.run(["./gradlew","test","--no-daemon",*extra],cwd=destination,
                             text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-    counts={"tests":0,"failures":0,"errors":0,"skipped":0}
+    counts={"tests":0,"failures":0,"errors":0,"skipped":0,"failed_test_names":[]}
     reports=list((destination/"build/test-results/test").glob("TEST-*.xml"))
     for report in reports:
         root=ET.parse(report).getroot()
-        for key in counts: counts[key]+=int(root.attrib.get(key,0))
+        for key in ("tests","failures","errors","skipped"):
+            counts[key]+=int(root.attrib.get(key,0))
+        for case in root.iter("testcase"):
+            if case.find("failure") is not None or case.find("error") is not None:
+                counts["failed_test_names"].append(case.attrib.get("name",""))
     counts["executed"]=counts["tests"]-counts["skipped"]
     return process.returncode,counts,process.stdout[-3000:]
 
@@ -54,7 +58,7 @@ def main():
         target='''if (data.length() == 0) {
             return data;
         }'''
-        if code.count(target)!=1: raise AssertionError("Could not locate the expected empty-input branch for mutation")
+        if code.count(target)!=1: raise AssertionError("Could not locate expected empty-input branch")
         source.write_text(code.replace(target,'''if (data.length() == 0) {
             return "BROKEN";
         }''',1))
@@ -62,15 +66,10 @@ def main():
         try:
             require_success("deliberately failing reference",failure)
         except RuntimeError:
-            if failure[0]==0 and failure[1]["failures"]==0 and failure[1]["errors"]==0:
-                raise AssertionError("Mutant was rejected for an unexpected reason")
+            if "encodeEmpty" not in failure[1]["failed_test_names"]:
+                raise AssertionError(f"Mutant did not fail expected encodeEmpty assertion: {failure[1]}")
         else:
             raise AssertionError("Deliberately failing reference was incorrectly accepted")
-        if not ({"encodeEmpty"} & set(failure[1].get("failed_test_names",[]))):
-            # Some Gradle/JUnit XML versions expose the testcase name only in the report;
-            # require at least one real assertion failure in all versions.
-            if failure[1]["failures"]+failure[1]["errors"]==0:
-                raise AssertionError("Mutant did not produce an assertion failure")
         evidence["deliberate_failure"]={"return_code":failure[0],**failure[1]}
 
         empty=root/"empty-selection"; copy_prepared(empty)
@@ -78,8 +77,8 @@ def main():
         try:
             require_success("zero-test selection",zero)
         except RuntimeError:
-            if zero[1]["executed"]!=0 and zero[0]==0:
-                raise AssertionError("Zero-test selection was rejected for neither zero tests nor process failure")
+            if zero[1]["executed"]!=0:
+                raise AssertionError(f"Expected zero executed tests, got {zero[1]}")
         else:
             raise AssertionError("Zero-test selection was incorrectly accepted")
         evidence["zero_test_selection"]={"return_code":zero[0],**zero[1]}
@@ -92,7 +91,7 @@ def main():
             "learner_solution_hashes_unchanged":True,"temporary_directories_cleaned":True}
     out=ROOT/"work/R58-T019/latest-result.json"; out.write_text(json.dumps(result,indent=2)+"\n")
     print(json.dumps(result,indent=2))
-    print("PASS: success accepted; assertion failure and zero-test selection rejected; learner hash unchanged.")
+    print("PASS: success accepted; encodeEmpty and zero-test runs rejected; learner hash unchanged.")
 
 if __name__=="__main__":
     try: main()
