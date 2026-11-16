@@ -55,13 +55,9 @@ def main():
         broken=root/"broken"; copy_prepared(broken)
         source=broken/"src/main/java/RunLengthEncoding.java"
         code=source.read_text()
-        target='''if (data.length() == 0) {
-            return data;
-        }'''
-        if code.count(target)!=1: raise AssertionError("Could not locate expected empty-input branch")
-        source.write_text(code.replace(target,'''if (data.length() == 0) {
-            return "BROKEN";
-        }''',1))
+        if code.count("return data;")!=1:
+            raise AssertionError("Could not locate the expected empty-input return")
+        source.write_text(code.replace("return data;", 'return "BROKEN";', 1))
         failure=execute(broken)
         try:
             require_success("deliberately failing reference",failure)
