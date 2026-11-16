@@ -28,6 +28,7 @@ def require(condition: bool, message: str) -> None:
 
 
 def copy_exercise(destination: Path) -> Path:
+    destination.mkdir(parents=True, exist_ok=True)
     target = destination / "exercise"
     shutil.copytree(EXERCISE, target, ignore=shutil.ignore_patterns("build", ".gradle"))
     config = json.loads((target / ".meta/config.json").read_text())
