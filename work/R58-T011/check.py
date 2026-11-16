@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Run the maintained D&D Character reference against the exercise tests in isolation."""
+"""Run the maintained D&D Character reference against all exercise tests in isolation."""
 
 from __future__ import annotations
 
 import json
-import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -21,12 +21,21 @@ EXERCISE_REL = Path("exercises/practice/dnd-character")
 EXERCISE = REPO_ROOT / EXERCISE_REL
 CONFIG_PATH = EXERCISE / ".meta" / "config.json"
 REFERENCE = EXERCISE / ".meta" / "src" / "reference" / "java" / "DnDCharacter.java"
+LEARNER_DISABLED = re.compile(
+    r'(?m)^[ \t]*@Disabled\("Remove to run test"\)[ \t]*\r?\n'
+)
 
 
 def run(command: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
     print("+", " ".join(command), f"(cwd={cwd})")
-    return subprocess.run(command, cwd=cwd, text=True, stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT, check=False)
+    return subprocess.run(
+        command,
+        cwd=cwd,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
 
 
 def main() -> int:
@@ -49,8 +58,7 @@ def main() -> int:
         return 2
 
     with tempfile.TemporaryDirectory(prefix="r58-t011-") as temp_name:
-        temp_root = Path(temp_name)
-        scratch = temp_root / "dnd-character"
+        scratch = Path(temp_name) / "dnd-character"
         shutil.copytree(EXERCISE, scratch, ignore=shutil.ignore_patterns("build", ".gradle"))
         scratch_wrapper = scratch / "gradlew"
         shutil.copy2(wrapper, scratch_wrapper)
@@ -64,6 +72,19 @@ def main() -> int:
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(REFERENCE, destination)
 
+        # Exercism starter tests are intentionally @Disabled for learners.
+        # Enable only that standard marker in the temporary copy so the
+        # maintained reference is exercised against the complete test suite.
+        enabled_from_scratch = 0
+        for relative_test in test_paths:
+            test_file = scratch / relative_test
+            original = test_file.read_text(encoding="utf-8")
+            updated, count = LEARNER_DISABLED.subn("", original)
+            enabled_from_scratch += count
+            if count:
+                test_file.write_text(updated, encoding="utf-8")
+        print(f"Enabled {enabled_from_scratch} learner-disabled tests in the temporary copy only.")
+
         result = run(["./gradlew", "test", "--no-daemon"], scratch)
         print(result.stdout)
 
@@ -73,6 +94,7 @@ def main() -> int:
             root = ET.parse(report).getroot()
             for key in totals:
                 totals[key] += int(root.attrib.get(key, "0"))
+        executed = totals["tests"] - totals["skipped"]
 
         evidence = {
             "task": "R58-T011",
@@ -81,8 +103,10 @@ def main() -> int:
             "platform": platform.platform(),
             "command": "./gradlew test --no-daemon",
             "return_code": result.returncode,
-            "test_reports": [str(p.relative_to(scratch)) for p in report_files],
+            "learner_disabled_tests_enabled_in_temporary_copy": enabled_from_scratch,
+            "test_reports": [str(path.relative_to(scratch)) for path in report_files],
             **totals,
+            "executed": executed,
         }
         evidence_path = REPO_ROOT / "work" / "R58-T011" / "latest-result.json"
         evidence_path.parent.mkdir(parents=True, exist_ok=True)
@@ -92,13 +116,16 @@ def main() -> int:
         if result.returncode != 0:
             print("FAIL: Gradle returned a non-zero exit code.", file=sys.stderr)
             return result.returncode or 1
-        if totals["tests"] == 0:
-            print("FAIL: Gradle reported zero executed tests.", file=sys.stderr)
+        if executed == 0:
+            print("FAIL: Gradle reported zero non-skipped tests.", file=sys.stderr)
             return 1
         if totals["failures"] or totals["errors"]:
             print("FAIL: one or more tests failed.", file=sys.stderr)
             return 1
-        print(f"PASS: {totals['tests']} tests executed; no failures or errors.")
+        if totals["skipped"]:
+            print("FAIL: one or more tests were unexpectedly skipped.", file=sys.stderr)
+            return 1
+        print(f"PASS: {executed} tests executed; no skips, failures, or errors.")
         return 0
 
 
