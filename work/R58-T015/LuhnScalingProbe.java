@@ -7,11 +7,7 @@ public class LuhnScalingProbe {
     private static final int REPETITIONS = 5;
 
     public static void main(String[] args) {
-        String[] candidates = {
-            "059",
-            "055444285",
-            "4539319503436467"
-        };
+        String[] candidates = {"059", "055444285", "4539319503436467"};
         LuhnValidator validator = new LuhnValidator();
 
         for (String candidate : candidates) {
@@ -19,17 +15,21 @@ public class LuhnScalingProbe {
                 throw new AssertionError("Benchmark input is not a valid Luhn number: " + candidate);
             }
 
+            long warmupChecksum = 0;
             for (int i = 0; i < WARMUP_CALLS; i++) {
-                sink += validator.isValid(candidate) ? 1 : 0;
+                warmupChecksum += validator.isValid(candidate) ? 1 : 0;
             }
+            sink = warmupChecksum;
 
             long[] samples = new long[REPETITIONS];
             for (int repetition = 0; repetition < REPETITIONS; repetition++) {
+                long checksum = 0;
                 long start = System.nanoTime();
                 for (int i = 0; i < CALLS_PER_SAMPLE; i++) {
-                    sink += validator.isValid(candidate) ? 1 : 0;
+                    checksum += validator.isValid(candidate) ? 1 : 0;
                 }
                 samples[repetition] = (System.nanoTime() - start) / CALLS_PER_SAMPLE;
+                sink = checksum;
             }
             Arrays.sort(samples);
             System.out.println("digits=" + candidate.length()
