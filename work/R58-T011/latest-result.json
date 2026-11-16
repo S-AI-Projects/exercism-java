@@ -1,0 +1,17 @@
+{
+  "task": "R58-T011",
+  "timestamp_unix": 1794804648,
+  "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "command": "./gradlew test --no-daemon",
+  "return_code": 0,
+  "learner_disabled_tests_enabled_in_temporary_copy": 27,
+  "test_reports": [
+    "build/test-results/test/TEST-DnDCharacterTest.xml"
+  ],
+  "tests": 28,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "executed": 28
+}

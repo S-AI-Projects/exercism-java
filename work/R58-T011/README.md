@@ -10,4 +10,4 @@ The checker copies the exercise, including dotfiles, into a temporary directory;
 
 The exercise's learner solution is never modified. The current TOML audit records 20 canonical entries: 19 included and 1 excluded, both before and after this task. The excluded UUID is superseded by the included `reimplements` UUID; no inclusion flag is changed.
 
-Execution status at authoring time: not run in this remote editing environment. Run the command locally and retain the generated `latest-result.json` as execution evidence before treating the check as passed.
+Execution status: PASS. Verified locally on macOS ARM64 with Python 3.14.7, Java 21.0.13 and Gradle 9.5.0. All 28 tests passed, with zero skipped tests, failures or errors. Detailed execution evidence is stored in latest-result.json.
