@@ -28,8 +28,9 @@ def main() -> None:
         assert tests[uuid]["description"] == description, f"Unexpected TOML description for {uuid}"
         assert f'@DisplayName("{description}")' in source, f"Missing JUnit display name: {description}"
         assert f"void {method}(" in source, f"Missing JUnit method: {method}"
-    assert not list(EXERCISE.rglob("*.j2")) and not list(EXERCISE.rglob("*.jinja")),
-        "Unexpected per-exercise Jinja template found; review the source-of-truth documentation"
+    templates = list(EXERCISE.rglob("*.j2")) + list(EXERCISE.rglob("*.jinja"))
+    if templates:
+        raise AssertionError(f"Unexpected per-exercise Jinja template found: {templates}")
     with tempfile.TemporaryDirectory(prefix="r58-t012-source-") as temporary:
         root = Path(temporary)
         copies = []
