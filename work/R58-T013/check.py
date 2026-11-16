@@ -20,6 +20,7 @@ CONFIG = EXERCISE / ".meta/config.json"
 REFERENCE = EXERCISE / ".meta/src/reference/java/VariableLengthQuantity.java"
 TEST_CLASS = "VariableLengthQuantityTest"
 TARGET_TEST = "smallest double byte"
+TEST_METHOD = "testSmallestDoubleByte"
 
 
 def require(condition: bool, message: str) -> None:
@@ -90,9 +91,9 @@ def main() -> int:
                 "Expected the two seven-bit shifts in encodeSingleNumber")
         mutant_source.write_text(source_text.replace("number >>= 7;", "number >>= 6;", 1))
         mutant_code, mutant_stats = run_gradle(mutant, "--tests",
-                                               f"{TEST_CLASS}.{TARGET_TEST}")
+                                               f"{TEST_CLASS}.{TEST_METHOD}")
         require(mutant_code != 0, "The six-bit mutant unexpectedly passed the target test")
-        require(TARGET_TEST in mutant_stats["failed_test_names"],
+        require(any(name == TARGET_TEST or name.startswith(TEST_METHOD) for name in mutant_stats["failed_test_names"]),
                 f"The mutant failed, but not at {TARGET_TEST}: {mutant_stats['failed_test_names']}")
         results["original"] = {"return_code": original_code, **original_stats}
         results["mutant"] = {"return_code": mutant_code, **mutant_stats}
