@@ -1,0 +1,44 @@
+{
+  "task": "R58-T013",
+  "timestamp_unix": 1794824902,
+  "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "java": "openjdk version \"21.0.13\" 2026-10-20 LTS",
+  "gradle_command": "./gradlew test --no-daemon",
+  "original": {
+    "return_code": 0,
+    "tests": 31,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "executed": 31,
+    "failed_test_names": [],
+    "reports": [
+      "build/test-results/test/TEST-VariableLengthQuantityTest.xml"
+    ],
+    "output_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nVariableLengthQuantityTest > asymmetric triple byte PASSED\n\nVariableLengthQuantityTest > asymmetric single byte PASSED\n\nVariableLengthQuantityTest > largest double byte PASSED\n\nVariableLengthQuantityTest > largest triple byte PASSED\n\nVariableLengthQuantityTest > largest single byte PASSED\n\nVariableLengthQuantityTest > arbitrary double byte PASSED\n\nVariableLengthQuantityTest > smallest double byte PASSED\n\nVariableLengthQuantityTest > arbitrary triple byte PASSED\n\nVariableLengthQuantityTest > smallest triple byte PASSED\n\nVariableLengthQuantityTest > arbitrary single byte PASSED\n\nVariableLengthQuantityTest > asymmetric quadruple byte PASSED\n\nVariableLengthQuantityTest > maximum 32-bit integer input PASSED\n\nVariableLengthQuantityTest > multiple values PASSED\n\nVariableLengthQuantityTest > two single-byte values PASSED\n\nVariableLengthQuantityTest > zero PASSED\n\nVariableLengthQuantityTest > four bytes PASSED\n\nVariableLengthQuantityTest > incomplete sequence causes error PASSED\n\nVariableLengthQuantityTest > two bytes PASSED\n\nVariableLengthQuantityTest > many multi-byte values PASSED\n\nVariableLengthQuantityTest > two multi-byte values PASSED\n\nVariableLengthQuantityTest > asymmetric quintuple byte PASSED\n\nVariableLengthQuantityTest > three bytes PASSED\n\nVariableLengthQuantityTest > arbitrary quadruple byte PASSED\n\nVariableLengthQuantityTest > smallest quadruple byte PASSED\n\nVariableLengthQuantityTest > one byte PASSED\n\nVariableLengthQuantityTest > incomplete sequence causes error, even if value is zero PASSED\n\nVariableLengthQuantityTest > largest quadruple byte PASSED\n\nVariableLengthQuantityTest > maximum 32-bit integer PASSED\n\nVariableLengthQuantityTest > arbitrary quintuple byte PASSED\n\nVariableLengthQuantityTest > smallest quintuple byte PASSED\n\nVariableLengthQuantityTest > asymmetric double byte PASSED\n\nBUILD SUCCESSFUL in 1s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n"
+  },
+  "mutant": {
+    "return_code": 1,
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "executed": 1,
+    "failed_test_names": [
+      "smallest double byte"
+    ],
+    "reports": [
+      "build/test-results/test/TEST-VariableLengthQuantityTest.xml"
+    ],
+    "output_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test FAILED\n\nVariableLengthQuantityTest > smallest double byte FAILED\n    org.opentest4j.AssertionFailedError: \n    expected: [\"0x81\", \"0x0\"]\n     but was: [\"0x82\", \"0x0\"]\n        at java.base@21.0.13/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n        at java.base@21.0.13/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\n        at app//VariableLengthQuantityTest.testSmallestDoubleByte(VariableLengthQuantityTest.java:54)\n\n1 test completed, 1 failed\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':test'.\n> There were failing tests. See the report at: file:///private/var/folders/lw/98jwltsd5xb855b34qkdvsh40000gn/T/r58-t013-rlz82cng/mutant/exercise/build/reports/tests/test/index.html\n\n* Try:\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\n\nBUILD FAILED in 2s\n3 actionable tasks: 3 executed\n"
+  },
+  "learner_solution_hashes_unchanged": true,
+  "tool_versions": {
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "java": "openjdk version \"21.0.13\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)",
+    "gradle": "------------------------------------------------------------\nGradle 9.5.0\n------------------------------------------------------------\n\nBuild time:    2026-04-28 12:05:30 UTC\nRevision:      3fe117d68f3907790f3809f121aa36303a9151f8\n\nKotlin:        2.3.20\nGroovy:        4.0.29\nAnt:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024\nLauncher JVM:  21.0.13 (Eclipse Adoptium 21.0.13+9-LTS)\nDaemon JVM:    /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home (no Daemon JVM specified, using current Java home)\nOS:            Mac OS X 26.6.2 aarch64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "batch_verified_at_unix": 1794824908
+}
