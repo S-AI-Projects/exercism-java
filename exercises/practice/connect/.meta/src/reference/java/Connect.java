@@ -11,33 +11,32 @@ class Connect {
 
     private Board boardO;
     private Board boardX;
-    private int boardHorizontalSize;
-    private int boardVerticalSize;
+    private int boardWidth;
+    private int boardHeight;
 
     public Connect(String[] board) {
         if (board.length == 0) {
             return;
         }
 
-        boardHorizontalSize = board[0]
+        boardWidth = board[0]
                 .replace(" ", "") // remove spaces
                 .length();
-        boardVerticalSize = board.length;
+        boardHeight = board.length;
 
-        //Player O and Player X don't win in the same directions. Therefore, we use two different boards which track
-        //their wins in different directions
-        boardO = new Board(boardHorizontalSize, boardVerticalSize, false);
-        boardX = new Board(boardHorizontalSize, boardVerticalSize, true);
+        // O connects top-to-bottom; X connects left-to-right, so each player tracks a different target direction.
+        boardO = new Board(boardWidth, boardHeight, false);
+        boardX = new Board(boardWidth, boardHeight, true);
 
-        //Place stones on the board
-        for (int i = 0; i < board.length; i++) {
-            String row = board[i].replace(" ", "");
-            for (int j = 0; j < row.length(); j++) {
-                if (row.charAt(j) == 'O') {
-                    boardO.placeStone(i, j);
+        // Place each stone in the corresponding player's connectivity structure.
+        for (int rowIndex = 0; rowIndex < board.length; rowIndex++) {
+            String row = board[rowIndex].replace(" ", "");
+            for (int columnIndex = 0; columnIndex < row.length(); columnIndex++) {
+                if (row.charAt(columnIndex) == 'O') {
+                    boardO.placeStone(rowIndex, columnIndex);
                 }
-                if (row.charAt(j) == 'X') {
-                    boardX.placeStone(i, j);
+                if (row.charAt(columnIndex) == 'X') {
+                    boardX.placeStone(rowIndex, columnIndex);
                 }
             }
         }
@@ -48,14 +47,15 @@ class Connect {
             return Winner.NONE;
         }
 
-        boolean playerOCanWin = boardHorizontalSize != 1 || boardO.hasStone(0, 0);
-        boolean playerXCanWin = boardVerticalSize != 1 || boardX.hasStone(0, 0);
+        // When a target edge collapses to one cell, that cell must belong to the player for a path to exist.
+        boolean playerOCanConnectTopToBottom = boardWidth != 1 || boardO.hasStone(0, 0);
+        boolean playerXCanConnectLeftToRight = boardHeight != 1 || boardX.hasStone(0, 0);
 
-        if (playerOCanWin && boardO.playerWins()) {
+        if (playerOCanConnectTopToBottom && boardO.playerWins()) {
             return Winner.PLAYER_O;
         }
 
-        if (playerXCanWin && boardX.playerWins()) {
+        if (playerXCanConnectLeftToRight && boardX.playerWins()) {
             return Winner.PLAYER_X;
         }
         return Winner.NONE;
