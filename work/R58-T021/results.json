@@ -1,0 +1,51 @@
+{
+  "status": "PASSED",
+  "checks": {
+    "config_json": {
+      "solution": "src/main/java/Allergies.java",
+      "test": "src/test/java/AllergiesTest.java",
+      "example": ".meta/src/reference/java/Allergies.java"
+    },
+    "tests_toml": {
+      "total_cases": 50,
+      "included_cases": 50,
+      "excluded_cases": 0,
+      "target_uuids": {
+        "17fc7296-2440-4ac4-ad7b-d07c321bc5a0": {
+          "description": "testing for eggs allergy -> not allergic to anything",
+          "comment": "Covered by AllergiesTest.eggsNotAllergicToAnything() (@DisplayName(\"not allergic to anything\")) verifying !allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((0 & 1) != 0).",
+          "included": true
+        },
+        "07ced27b-1da5-4c2e-8ae2-cb2791437546": {
+          "description": "testing for eggs allergy -> allergic only to eggs",
+          "comment": "Covered by AllergiesTest.eggsAllergicOnlyToEggs() (@DisplayName(\"allergic only to eggs\")) verifying allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((1 & 1) != 0).",
+          "included": true
+        },
+        "5035b954-b6fa-4b9b-a487-dae69d8c5f96": {
+          "description": "testing for eggs allergy -> allergic to eggs and something else",
+          "comment": "Covered by AllergiesTest.eggsAllergicToEggsAndSomethingElse() (@DisplayName(\"allergic to eggs and something else\")) verifying allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((3 & 1) != 0).",
+          "included": true
+        }
+      }
+    },
+    "learner_stub_unsolved": true,
+    "test_execution": {
+      "exit_code": 0,
+      "tests_total": 50,
+      "tests_passed": 50,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "eggsNotAllergicToAnything": "PASSED",
+        "eggsAllergicOnlyToEggs": "PASSED",
+        "eggsAllergicToEggsAndSomethingElse": "PASSED"
+      }
+    }
+  },
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  }
+}

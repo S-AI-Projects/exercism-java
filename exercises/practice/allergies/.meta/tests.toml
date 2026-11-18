@@ -9,14 +9,26 @@
 # As user-added comments (using the # character) will be removed when this file
 # is regenerated, comments can be added via a `comment` key.
 
+# Case 17fc7296-2440-4ac4-ad7b-d07c321bc5a0: score 0 has no allergens.
+# Covered in Java by AllergiesTest.eggsNotAllergicToAnything() [@Test @DisplayName("not allergic to anything")].
+# Operation: (score & allergen.getScore()) != 0 evaluates (0 & 1) != 0 -> false.
 [17fc7296-2440-4ac4-ad7b-d07c321bc5a0]
 description = "testing for eggs allergy -> not allergic to anything"
+comment = "Covered by AllergiesTest.eggsNotAllergicToAnything() (@DisplayName(\"not allergic to anything\")) verifying !allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((0 & 1) != 0)."
 
+# Case 07ced27b-1da5-4c2e-8ae2-cb2791437546: score 1 represents only EGGS (1).
+# Covered in Java by AllergiesTest.eggsAllergicOnlyToEggs() [@Test @DisplayName("allergic only to eggs")].
+# Operation: (score & allergen.getScore()) != 0 evaluates (1 & 1) != 0 -> true.
 [07ced27b-1da5-4c2e-8ae2-cb2791437546]
 description = "testing for eggs allergy -> allergic only to eggs"
+comment = "Covered by AllergiesTest.eggsAllergicOnlyToEggs() (@DisplayName(\"allergic only to eggs\")) verifying allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((1 & 1) != 0)."
 
+# Case 5035b954-b6fa-4b9b-a487-dae69d8c5f96: score 3 represents EGGS (1) and PEANUTS (2).
+# Covered in Java by AllergiesTest.eggsAllergicToEggsAndSomethingElse() [@Test @DisplayName("allergic to eggs and something else")].
+# Operation: (score & allergen.getScore()) != 0 evaluates (3 & 1) != 0 -> true.
 [5035b954-b6fa-4b9b-a487-dae69d8c5f96]
 description = "testing for eggs allergy -> allergic to eggs and something else"
+comment = "Covered by AllergiesTest.eggsAllergicToEggsAndSomethingElse() (@DisplayName(\"allergic to eggs and something else\")) verifying allergies.isAllergicTo(Allergen.EGGS) via bitwise AND ((3 & 1) != 0)."
 
 [64a6a83a-5723-4b5b-a896-663307403310]
 description = "testing for eggs allergy -> allergic to something, but not eggs"
