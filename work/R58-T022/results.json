@@ -1,0 +1,111 @@
+{
+  "status": "PASSED",
+  "inputs": {
+    "tests_toml": "/Users/adityasoni/exercism-java/exercises/practice/isbn-verifier/.meta/tests.toml",
+    "test_java": "/Users/adityasoni/exercism-java/exercises/practice/isbn-verifier/src/test/java/IsbnVerifierTest.java",
+    "config_json": "/Users/adityasoni/exercism-java/exercises/practice/isbn-verifier/.meta/config.json",
+    "named_cases": [
+      {
+        "method": "invalidIsbnCheckDigit",
+        "display_name": "invalid isbn check digit",
+        "uuid": "19f76b53-7c24-45f8-87b8-4604d0ccd248",
+        "input": "3-598-21508-9",
+        "expected": false
+      },
+      {
+        "method": "validIsbnNumberWithCheckDigitOfTen",
+        "display_name": "valid isbn with a check digit of 10",
+        "uuid": "4164bfee-fb0a-4a1c-9f70-64c6a1903dcd",
+        "input": "3-598-21507-X",
+        "expected": true
+      }
+    ]
+  },
+  "checks": {
+    "config_json": {
+      "solution": "src/main/java/IsbnVerifier.java",
+      "test": "src/test/java/IsbnVerifierTest.java",
+      "example": ".meta/src/reference/java/IsbnVerifier.java"
+    },
+    "tests_toml": {
+      "total": 21,
+      "included": 21,
+      "excluded": 0
+    },
+    "display_name_crosscheck": {
+      "java_names": [
+        "X is not substituted by the value 10",
+        "X is only valid as a check digit",
+        "check digit is a character other than X",
+        "check digit of X should not be used for 0",
+        "empty isbn",
+        "input is 9 characters",
+        "input is too long but contains a valid isbn",
+        "invalid character in isbn is not treated as zero",
+        "invalid characters are not ignored after checking length",
+        "invalid characters are not ignored before checking length",
+        "invalid check digit in isbn is not treated as zero",
+        "invalid isbn check digit",
+        "isbn without check digit",
+        "isbn without check digit and dashes",
+        "isbn without separating dashes and X as check digit",
+        "only one check digit is allowed",
+        "too long isbn and no dashes",
+        "too short isbn",
+        "valid isbn",
+        "valid isbn with a check digit of 10",
+        "valid isbn with check digit padded with letters is invalid",
+        "valid isbn without separating dashes"
+      ],
+      "toml_descriptions": [
+        "X is not substituted by the value 10",
+        "X is only valid as a check digit",
+        "check digit is a character other than X",
+        "check digit of X should not be used for 0",
+        "empty isbn",
+        "input is 9 characters",
+        "input is too long but contains a valid isbn",
+        "invalid character in isbn is not treated as zero",
+        "invalid characters are not ignored after checking length",
+        "invalid characters are not ignored before checking length",
+        "invalid check digit in isbn is not treated as zero",
+        "invalid isbn check digit",
+        "isbn without check digit",
+        "isbn without check digit and dashes",
+        "isbn without separating dashes and X as check digit",
+        "only one check digit is allowed",
+        "too long isbn and no dashes",
+        "too short isbn",
+        "valid isbn",
+        "valid isbn with a check digit of 10",
+        "valid isbn without separating dashes"
+      ],
+      "java_only_hand_maintained": [
+        "valid isbn with check digit padded with letters is invalid"
+      ],
+      "toml_only_missing_from_java": []
+    },
+    "round_trip": {
+      "note": "File is hand-maintained; no generator timestamps. Two reads are identical.",
+      "byte_match": true
+    },
+    "learner_stub_unsolved": true,
+    "test_execution": {
+      "exit_code": 0,
+      "tests_total": 22,
+      "tests_passed": 22,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "invalidIsbnCheckDigit": "PASSED",
+        "validIsbnNumberWithCheckDigitOfTen": "PASSED"
+      }
+    }
+  },
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  }
+}
