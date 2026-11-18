@@ -1,0 +1,123 @@
+{
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  },
+  "inputs": {
+    "named_cases": [
+      {
+        "method": "aStrikeEarnsTenPointsInFrameWithASingleRoll",
+        "display_name": "a strike earns ten points in a frame with a single roll",
+        "uuid": "75269642-2b34-4b72-95a4-9be28ab16902",
+        "input": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expected": 10
+      },
+      {
+        "method": "pointsScoredInTheTwoRollsAfterAStrikeAreCountedTwiceAsABonus",
+        "display_name": "points scored in the two rolls after a strike are counted twice as a bonus",
+        "uuid": "037f978c-5d01-4e49-bdeb-9e20a2e6f9a6",
+        "input": [
+          10,
+          5,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expected": 26
+      },
+      {
+        "method": "consecutiveStrikesEachGetTheTwoRollBonus",
+        "display_name": "consecutive strikes each get the two roll bonus",
+        "uuid": "1635e82b-14ec-4cd1-bce4-4ea14bd13a49",
+        "input": [
+          10,
+          10,
+          10,
+          5,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expected": 81
+      }
+    ],
+    "mutant": {
+      "file": "Frame.java",
+      "original": "return next.isStrike() ? nextNext.first : next.second;",
+      "mutated": "return next.isStrike() ? next.first : next.second; // MUTANT: wrong second bonus",
+      "description": "Uses next.first instead of nextNext.first for the second strike bonus roll"
+    }
+  },
+  "checks": {
+    "reference": {
+      "exit_code": 0,
+      "total": 31,
+      "passed": 31,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "named_cases": {
+        "aStrikeEarnsTenPointsInFrameWithASingleRoll": "PASSED",
+        "pointsScoredInTheTwoRollsAfterAStrikeAreCountedTwiceAsABonus": "PASSED",
+        "consecutiveStrikesEachGetTheTwoRollBonus": "PASSED"
+      }
+    },
+    "mutant": {
+      "exit_code": 1,
+      "total": 31,
+      "passed": 28,
+      "skipped": 0,
+      "failures": 3,
+      "errors": 0,
+      "rejecting_case": "consecutive strikes each get the two roll bonus",
+      "rejecting_case_status": "FAILED",
+      "expected_rejecting_status": "FAILED"
+    }
+  }
+}
