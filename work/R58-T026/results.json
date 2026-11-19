@@ -1,0 +1,94 @@
+{
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  },
+  "inputs": {
+    "exercise": "exercises/practice/darts",
+    "named_cases": [
+      {
+        "method": "missedTarget",
+        "display_name": "Missed target",
+        "uuid": "9033f731-0a3a-4d9c-b1c0-34a1c8362afb",
+        "input": {
+          "x": -9.0,
+          "y": 9.0
+        },
+        "expected": 0
+      },
+      {
+        "method": "onTheOuterCircle",
+        "display_name": "On the outer circle",
+        "uuid": "4c9f6ff4-c489-45fd-be8a-1fcb08b4d0ba",
+        "input": {
+          "x": 0.0,
+          "y": 10.0
+        },
+        "expected": 1
+      },
+      {
+        "method": "onTheMiddleCircle",
+        "display_name": "On the middle circle",
+        "uuid": "14378687-ee58-4c9b-a323-b089d5274be8",
+        "input": {
+          "x": -5.0,
+          "y": 0.0
+        },
+        "expected": 5
+      },
+      {
+        "method": "onTheInnerCircle",
+        "display_name": "On the inner circle",
+        "uuid": "849e2e63-85bd-4fed-bc3b-781ae962e2c9",
+        "input": {
+          "x": 0.0,
+          "y": -1.0
+        },
+        "expected": 10
+      }
+    ],
+    "approaches_compared": [
+      {
+        "name": "Reference (Euclidean distance via Math.sqrt)",
+        "file": ".meta/src/reference/java/Darts.java"
+      },
+      {
+        "name": "Alternative (Squared Euclidean distance)",
+        "file": "work/R58-T026/AlternativeDarts.java"
+      }
+    ]
+  },
+  "checks": {
+    "reference": {
+      "exit_code": 0,
+      "tests_total": 13,
+      "tests_passed": 13,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "missedTarget": "PASSED",
+        "onTheOuterCircle": "PASSED",
+        "onTheMiddleCircle": "PASSED",
+        "onTheInnerCircle": "PASSED"
+      }
+    },
+    "alternative": {
+      "exit_code": 0,
+      "tests_total": 13,
+      "tests_passed": 13,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "missedTarget": "PASSED",
+        "onTheOuterCircle": "PASSED",
+        "onTheMiddleCircle": "PASSED",
+        "onTheInnerCircle": "PASSED"
+      },
+      "agrees_with_reference": true
+    }
+  }
+}
