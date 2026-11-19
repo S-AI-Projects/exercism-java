@@ -1,0 +1,108 @@
+{
+  "task": "R58-T002",
+  "exercise": "isogram",
+  "timestamp_unix": 1795094640,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0",
+    "configlet": "4.0.3"
+  },
+  "inputs": {
+    "config_json": "/Users/utkarsh/Desktop/task 02/exercises/practice/isogram/.meta/config.json",
+    "tests_toml": "/Users/utkarsh/Desktop/task 02/exercises/practice/isogram/.meta/tests.toml",
+    "test_java": "/Users/utkarsh/Desktop/task 02/exercises/practice/isogram/src/test/java/IsogramCheckerTest.java",
+    "reference_java": "/Users/utkarsh/Desktop/task 02/exercises/practice/isogram/.meta/src/reference/java/IsogramChecker.java",
+    "solution_java": "/Users/utkarsh/Desktop/task 02/exercises/practice/isogram/src/main/java/IsogramChecker.java",
+    "named_anchor_cases": [
+      {
+        "method": "testEmptyString",
+        "display_name": "empty string",
+        "uuid": "a0e97d2d-669e-47c7-8134-518a1e2c4555",
+        "input": {
+          "phrase": ""
+        },
+        "expected": true
+      },
+      {
+        "method": "testLowercaseIsogram",
+        "display_name": "isogram with only lower case characters",
+        "uuid": "9a001b50-f194-4143-bc29-2af5ec1ef652",
+        "input": {
+          "phrase": "isogram"
+        },
+        "expected": true
+      },
+      {
+        "method": "testNotIsogram",
+        "display_name": "word with one duplicated character",
+        "uuid": "8ddb0ca3-276e-4f8b-89da-d95d5bae78a4",
+        "input": {
+          "phrase": "eleven"
+        },
+        "expected": false
+      }
+    ]
+  },
+  "checks": {
+    "config_resolution": {
+      "solution": "src/main/java/IsogramChecker.java",
+      "test": "src/test/java/IsogramCheckerTest.java",
+      "example": ".meta/src/reference/java/IsogramChecker.java",
+      "all_paths_exist": true
+    },
+    "tests_toml": {
+      "canonical_total": 14,
+      "named_cases_present": true
+    },
+    "display_name_cross_check": {
+      "java_count": 14,
+      "toml_count": 14,
+      "exact_match": true,
+      "descriptions": [
+        "empty string",
+        "isogram with only lower case characters",
+        "word with one duplicated character",
+        "word with one duplicated character from the end of the alphabet",
+        "longest reported english isogram",
+        "word with duplicated character in mixed case",
+        "word with duplicated character in mixed case, lowercase first",
+        "hypothetical isogrammic word with hyphen",
+        "hypothetical word with duplicated character following hyphen",
+        "isogram with duplicated hyphen",
+        "made-up name that is an isogram",
+        "duplicated character in the middle",
+        "same first and last characters",
+        "word with duplicated character and with two hyphens"
+      ]
+    },
+    "round_trip_generation": {
+      "passes_compared": 2,
+      "timestamp_normalized": true,
+      "identical": true,
+      "cases_retained": 14
+    },
+    "learner_stub_unsolved": true,
+    "test_execution": {
+      "return_code": 0,
+      "tests_total": 14,
+      "tests_executed": 14,
+      "tests_passed": 14,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "tests_skipped": 0,
+      "named_anchor_cases": {
+        "empty string": "PASSED",
+        "isogram with only lower case characters": "PASSED",
+        "word with one duplicated character": "PASSED"
+      }
+    },
+    "negative_validation": {
+      "mutant_rejected": true,
+      "zero_test_rejected": true
+    }
+  },
+  "summary": "All 14 tests passed against reference; named anchor cases verified; stub untouched."
+}
