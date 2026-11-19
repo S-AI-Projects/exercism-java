@@ -1,0 +1,57 @@
+{
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  },
+  "inputs": {
+    "named_cases": [
+      {
+        "method": "verseOne",
+        "display_name": "verse one - the house that jack built",
+        "uuid": "28a540ff-f765-4348-9d57-ae33f25f41f2",
+        "input": 1,
+        "expected_start": "This is the house that Jack built."
+      },
+      {
+        "method": "verseTwo",
+        "display_name": "verse two - the malt that lay",
+        "uuid": "ebc825ac-6e2b-4a5e-9afd-95732191c8da",
+        "input": 2,
+        "expected_start": "This is the malt that lay in the house that Jack built."
+      },
+      {
+        "method": "verseThree",
+        "display_name": "verse three - the rat that ate",
+        "uuid": "1ed8bb0f-edb8-4bd1-b6d4-b64754fe4a60",
+        "input": 3,
+        "expected_start": "This is the rat that ate the malt that lay in the house that Jack built."
+      }
+    ],
+    "refactoring": {
+      "shadowing_eliminated": true,
+      "extracted_calculation": "relativeClause(int index)",
+      "preserved_api": [
+        "verse(int)",
+        "verses(int, int)",
+        "sing()"
+      ]
+    }
+  },
+  "checks": {
+    "test_execution": {
+      "exit_code": 0,
+      "tests_total": 14,
+      "tests_passed": 14,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "verseOne": "PASSED",
+        "verseTwo": "PASSED",
+        "verseThree": "PASSED"
+      }
+    }
+  }
+}

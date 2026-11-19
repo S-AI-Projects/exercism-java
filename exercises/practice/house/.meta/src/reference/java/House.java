@@ -29,24 +29,28 @@ class House {
     };
 
     String verse(int verseNumber) {
-        StringBuilder verse = new StringBuilder();
-        verse.append("This is the " + CHARACTERS[verseNumber - 1]);
+        StringBuilder rhyme = new StringBuilder();
+        rhyme.append("This is the ").append(CHARACTERS[verseNumber - 1]);
 
         for (int i = verseNumber - 2; i >= 0; i--) {
-            verse.append(" that " + ACTIONS[i] + " the " + CHARACTERS[i]);
+            rhyme.append(relativeClause(i));
         }
 
-        return verse.toString();
+        return rhyme.toString();
+    }
+
+    private String relativeClause(int index) {
+        return " that " + ACTIONS[index] + " the " + CHARACTERS[index];
     }
 
     String verses(int startVerse, int endVerse) {
-        String[] verses = new String[endVerse - startVerse + 1];
+        String[] verseCollection = new String[endVerse - startVerse + 1];
 
         for (int i = startVerse; i <= endVerse; i++) {
-            verses[i - startVerse] = verse(i);
+            verseCollection[i - startVerse] = verse(i);
         }
 
-        return String.join("\n", verses);
+        return String.join("\n", verseCollection);
     }
 
     String sing() {
