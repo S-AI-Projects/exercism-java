@@ -1,0 +1,65 @@
+{
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.14.7",
+    "java": "openjdk version \"21.0.13.1\" 2026-11-17",
+    "gradle": "Gradle 9.5.0"
+  },
+  "inputs": {
+    "exercise": "exercises/practice/forth",
+    "benchmark_sizes": [
+      99,
+      999,
+      4999
+    ],
+    "benchmark_repetitions": 5
+  },
+  "checks": {
+    "test_execution": {
+      "exit_code": 0,
+      "tests_total": 55,
+      "tests_passed": 55,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0
+    },
+    "benchmarks": [
+      {
+        "size": 99,
+        "median_ms": 0.1947,
+        "expected_value": 50,
+        "times_ms": [
+          0.1717,
+          0.1845,
+          0.1947,
+          0.2152,
+          0.2526
+        ]
+      },
+      {
+        "size": 999,
+        "median_ms": 1.326,
+        "expected_value": 500,
+        "times_ms": [
+          1.1501,
+          1.154,
+          1.326,
+          1.4594,
+          1.6771
+        ]
+      },
+      {
+        "size": 4999,
+        "median_ms": 4.4549,
+        "expected_value": 2500,
+        "times_ms": [
+          4.0955,
+          4.4098,
+          4.4549,
+          4.6499,
+          4.9175
+        ]
+      }
+    ]
+  }
+}

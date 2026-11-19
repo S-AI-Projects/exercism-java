@@ -4,6 +4,40 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Complexity and Invariant Analysis for ForthEvaluator:
+ *
+ * 1. Input Size (N):
+ *    - N represents the total number of tokens in the input program (numbers, built-in words,
+ *      and custom word definition tokens).
+ *
+ * 2. Algorithmic Operations:
+ *    - Parsing: Tokenizes input lines by whitespace splitting and regex matching in O(N) time and space.
+ *    - Evaluation Loop: Employs a work-list loop (while (!tokens.isEmpty())) using tokens.remove(0).
+ *      Because tokens is implemented as a java.util.ArrayList, remove(0) incurs an O(K) array shift
+ *      per remaining token K, leading to quadratic O(N^2) total element shifts across N evaluations.
+ *    - User-defined word expansion: Word definitions are looked up in userOps (HashMap, O(1) average).
+ *      Replacement tokens are prepended via tokens.add(0, token), which also incurs an O(K) array shift.
+ *    - Stack Operations: Built-in arithmetic (+, -, *, /) and stack manipulation (dup, drop, swap, over)
+ *      operate on an ArrayDeque<Integer> in O(1) amortized time per operation.
+ *
+ * 3. Time Complexity:
+ *    - O(N^2) worst-case and average-case time due to ArrayList.remove(0) and ArrayList.add(0, ...)
+ *      element-shifting overhead during evaluation.
+ *
+ * 4. Auxiliary Space Complexity:
+ *    - O(N + D) auxiliary space, where N is the token list length, and D is the number of tokens
+ *      stored in user-defined operator definitions (userOps). The values evaluation stack requires
+ *      O(S) auxiliary space where S <= N is the maximum stack depth.
+ *
+ * 5. Invariants:
+ *    - Operand availability: Binary operations (+, -, *, /, swap, over) require at least 2 values
+ *      on the stack; unary operations (dup, drop) require at least 1 value; violations throw IllegalArgumentException.
+ *    - Non-zero divisor: Division by zero is prohibited and throws IllegalArgumentException.
+ *    - Word case-insensitivity: Operator lookups and user definitions are normalized to lower-case.
+ *    - Number redefinition restriction: Number literals cannot be redefined as word names.
+ *    - Result order: evaluateProgram returns stack elements in bottom-to-top order (oldest to newest).
+ */
 class ForthEvaluator {
 
     private static final Map<String, UnaryOperator<Deque<Integer>>> BUILT_IN_OPS
