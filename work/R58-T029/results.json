@@ -1,0 +1,349 @@
+{
+  "created_utc": "2026-11-20T18:06:22.385124+00:00",
+  "inputs": {
+    "runner": "tools/course_checks/r58-t029.py",
+    "variants": [
+      "reference",
+      "failing",
+      "empty",
+      "interrupt"
+    ]
+  },
+  "expected": {
+    "reference": "runner exits 0; tests execute and pass",
+    "failing": "runner propagates non-zero Gradle status and assertion failure",
+    "empty": "runner exits non-zero when zero tests execute",
+    "interrupt": "runner exits 130 and cleans temporary copy",
+    "all_variants": "learner hashes match before/after every run"
+  },
+  "tool_versions": {
+    "python": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Python 3.14.7\n",
+      "stderr": "",
+      "timed_out": false
+    },
+    "java": {
+      "command": [
+        "java",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "openjdk version \"21.0.13.1\" 2026-11-17\nOpenJDK Runtime Environment Homebrew (build 21.0.13.1)\nOpenJDK 64-Bit Server VM Homebrew (build 21.0.13.1, mixed mode, sharing)\n",
+      "timed_out": false
+    },
+    "javac": {
+      "command": [
+        "javac",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "javac 21.0.13.1\n",
+      "stderr": "",
+      "timed_out": false
+    }
+  },
+  "runs": {
+    "reference": {
+      "expected": "runner exits 0; tests execute and pass",
+      "process": {
+        "command": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "/Users/adityasoni/exercism-java/tools/course_checks/r58-t029.py",
+          "--variant",
+          "reference"
+        ],
+        "returncode": 0,
+        "stdout": "{\n  \"variant\": \"reference\",\n  \"config\": {\n    \"solution\": [\n      \"src/main/java/IntergalacticTransmission.java\"\n    ],\n    \"test\": [\n      \"src/test/java/IntergalacticTransmissionTest.java\"\n    ],\n    \"example\": [\n      \".meta/src/reference/java/IntergalacticTransmission.java\"\n    ],\n    \"invalidator\": [\n      \"build.gradle\"\n    ]\n  },\n  \"expected\": {\n    \"runner_returncode\": 0,\n    \"minimum_executed\": 1\n  },\n  \"learner_hashes_before\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"test_counts\": {\n    \"tests\": 26,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 25,\n    \"executed\": 1\n  },\n  \"gradle\": {\n    \"command\": [\n      \"./gradlew\",\n      \"test\"\n    ],\n    \"returncode\": 0,\n    \"stdout\": \"> Task :compileJava\\n> Task :processResources NO-SOURCE\\n> Task :classes\\n> Task :compileTestJava\\n> Task :processTestResources NO-SOURCE\\n> Task :testClasses\\n\\n> Task :test\\n\\nIntergalacticTransmissionTest > last byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > 0x05 is transmitted as 0x0581 SKIPPED\\n\\nIntergalacticTransmissionTest > 0xe2566500 is decoded to 0xe2ad90 SKIPPED\\n\\nIntergalacticTransmissionTest > seven byte message SKIPPED\\n\\nIntergalacticTransmissionTest > eight byte message SKIPPED\\n\\nIntergalacticTransmissionTest > calculate transmit sequences PASSED\\n\\nIntergalacticTransmissionTest > 0x2881 is decoded to 0x29 SKIPPED\\n\\nIntergalacticTransmissionTest > second byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > zero message SKIPPED\\n\\nIntergalacticTransmissionTest > at 7 bytes long, no padding is required SKIPPED\\n\\nIntergalacticTransmissionTest > wrong parity on 16th byte SKIPPED\\n\\nIntergalacticTransmissionTest > 0x0581 is decoded to 0x05 SKIPPED\\n\\nIntergalacticTransmissionTest > first byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > 0x0300 is decoded to 0x02 SKIPPED\\n\\nIntergalacticTransmissionTest > 0xc001c0de is transmitted as 0xc000711be1 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x00 is transmitted as 0x0000 SKIPPED\\n\\nIntergalacticTransmissionTest > twenty byte message SKIPPED\\n\\nIntergalacticTransmissionTest > 0x02 is transmitted as 0x0300 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x06 is transmitted as 0x0600 SKIPPED\\n\\nIntergalacticTransmissionTest > six byte message SKIPPED\\n\\nIntergalacticTransmissionTest > 0xcf4b00 is decoded to 0xce94 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x29 is transmitted as 0x2881 SKIPPED\\n\\nIntergalacticTransmissionTest > twenty byte message SKIPPED\\n\\nIntergalacticTransmissionTest > eight byte message SKIPPED\\n\\nIntergalacticTransmissionTest > empty message SKIPPED\\n\\nIntergalacticTransmissionTest > six byte message SKIPPED\\n\\nBUILD SUCCESSFUL in 985ms\\n3 actionable tasks: 3 executed\\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\\n\",\n    \"stderr\": \"\",\n    \"timed_out\": false\n  },\n  \"runner_error\": null,\n  \"interrupted\": false,\n  \"scratch_cleaned\": true,\n  \"test_report_files\": 1,\n  \"learner_hashes_after\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"learner_hashes_match\": true,\n  \"runner_returncode\": 0,\n  \"actual\": {\n    \"runner_returncode\": 0,\n    \"gradle_returncode\": 0,\n    \"test_counts\": {\n      \"tests\": 26,\n      \"failures\": 0,\n      \"errors\": 0,\n      \"skipped\": 25,\n      \"executed\": 1\n    },\n    \"learner_hashes_match\": true,\n    \"scratch_cleaned\": true\n  }\n}\n",
+        "stderr": "",
+        "timed_out": false
+      },
+      "report": {
+        "variant": "reference",
+        "config": {
+          "solution": [
+            "src/main/java/IntergalacticTransmission.java"
+          ],
+          "test": [
+            "src/test/java/IntergalacticTransmissionTest.java"
+          ],
+          "example": [
+            ".meta/src/reference/java/IntergalacticTransmission.java"
+          ],
+          "invalidator": [
+            "build.gradle"
+          ]
+        },
+        "expected": {
+          "runner_returncode": 0,
+          "minimum_executed": 1
+        },
+        "learner_hashes_before": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "test_counts": {
+          "tests": 26,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 25,
+          "executed": 1
+        },
+        "gradle": {
+          "command": [
+            "./gradlew",
+            "test"
+          ],
+          "returncode": 0,
+          "stdout": "> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nIntergalacticTransmissionTest > last byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > 0x05 is transmitted as 0x0581 SKIPPED\n\nIntergalacticTransmissionTest > 0xe2566500 is decoded to 0xe2ad90 SKIPPED\n\nIntergalacticTransmissionTest > seven byte message SKIPPED\n\nIntergalacticTransmissionTest > eight byte message SKIPPED\n\nIntergalacticTransmissionTest > calculate transmit sequences PASSED\n\nIntergalacticTransmissionTest > 0x2881 is decoded to 0x29 SKIPPED\n\nIntergalacticTransmissionTest > second byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > zero message SKIPPED\n\nIntergalacticTransmissionTest > at 7 bytes long, no padding is required SKIPPED\n\nIntergalacticTransmissionTest > wrong parity on 16th byte SKIPPED\n\nIntergalacticTransmissionTest > 0x0581 is decoded to 0x05 SKIPPED\n\nIntergalacticTransmissionTest > first byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > 0x0300 is decoded to 0x02 SKIPPED\n\nIntergalacticTransmissionTest > 0xc001c0de is transmitted as 0xc000711be1 SKIPPED\n\nIntergalacticTransmissionTest > 0x00 is transmitted as 0x0000 SKIPPED\n\nIntergalacticTransmissionTest > twenty byte message SKIPPED\n\nIntergalacticTransmissionTest > 0x02 is transmitted as 0x0300 SKIPPED\n\nIntergalacticTransmissionTest > 0x06 is transmitted as 0x0600 SKIPPED\n\nIntergalacticTransmissionTest > six byte message SKIPPED\n\nIntergalacticTransmissionTest > 0xcf4b00 is decoded to 0xce94 SKIPPED\n\nIntergalacticTransmissionTest > 0x29 is transmitted as 0x2881 SKIPPED\n\nIntergalacticTransmissionTest > twenty byte message SKIPPED\n\nIntergalacticTransmissionTest > eight byte message SKIPPED\n\nIntergalacticTransmissionTest > empty message SKIPPED\n\nIntergalacticTransmissionTest > six byte message SKIPPED\n\nBUILD SUCCESSFUL in 985ms\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+          "stderr": "",
+          "timed_out": false
+        },
+        "runner_error": null,
+        "interrupted": false,
+        "scratch_cleaned": true,
+        "test_report_files": 1,
+        "learner_hashes_after": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "learner_hashes_match": true,
+        "runner_returncode": 0,
+        "actual": {
+          "runner_returncode": 0,
+          "gradle_returncode": 0,
+          "test_counts": {
+            "tests": 26,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 25,
+            "executed": 1
+          },
+          "learner_hashes_match": true,
+          "scratch_cleaned": true
+        }
+      },
+      "passed": true
+    },
+    "failing": {
+      "expected": "runner propagates non-zero Gradle status and assertion failure",
+      "process": {
+        "command": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "/Users/adityasoni/exercism-java/tools/course_checks/r58-t029.py",
+          "--variant",
+          "failing"
+        ],
+        "returncode": 1,
+        "stdout": "{\n  \"variant\": \"failing\",\n  \"config\": {\n    \"solution\": [\n      \"src/main/java/IntergalacticTransmission.java\"\n    ],\n    \"test\": [\n      \"src/test/java/IntergalacticTransmissionTest.java\"\n    ],\n    \"example\": [\n      \".meta/src/reference/java/IntergalacticTransmission.java\"\n    ],\n    \"invalidator\": [\n      \"build.gradle\"\n    ]\n  },\n  \"expected\": {\n    \"runner_returncode\": \"nonzero\",\n    \"gradle_returncode\": \"nonzero\",\n    \"minimum_failures\": 1\n  },\n  \"learner_hashes_before\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"test_counts\": {\n    \"tests\": 26,\n    \"failures\": 1,\n    \"errors\": 0,\n    \"skipped\": 25,\n    \"executed\": 1\n  },\n  \"gradle\": {\n    \"command\": [\n      \"./gradlew\",\n      \"test\"\n    ],\n    \"returncode\": 1,\n    \"stdout\": \"> Task :compileJava\\n> Task :processResources NO-SOURCE\\n> Task :classes\\n> Task :compileTestJava\\n> Task :processTestResources NO-SOURCE\\n> Task :testClasses\\n\\n> Task :test FAILED\\n\\nIntergalacticTransmissionTest > last byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > 0x05 is transmitted as 0x0581 SKIPPED\\n\\nIntergalacticTransmissionTest > 0xe2566500 is decoded to 0xe2ad90 SKIPPED\\n\\nIntergalacticTransmissionTest > seven byte message SKIPPED\\n\\nIntergalacticTransmissionTest > eight byte message SKIPPED\\n\\nIntergalacticTransmissionTest > calculate transmit sequences FAILED\\n    org.opentest4j.AssertionFailedError: \\n    expected: []\\n     but was: [1]\\n        at java.base@21.0.13.1/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\\n        at java.base@21.0.13.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\\n        at app//IntergalacticTransmissionTest.calculateTransmitSequencesEmptyMessage(IntergalacticTransmissionTest.java:18)\\n\\nIntergalacticTransmissionTest > 0x2881 is decoded to 0x29 SKIPPED\\n\\nIntergalacticTransmissionTest > second byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > zero message SKIPPED\\n\\nIntergalacticTransmissionTest > at 7 bytes long, no padding is required SKIPPED\\n\\nIntergalacticTransmissionTest > wrong parity on 16th byte SKIPPED\\n\\nIntergalacticTransmissionTest > 0x0581 is decoded to 0x05 SKIPPED\\n\\nIntergalacticTransmissionTest > first byte has wrong parity SKIPPED\\n\\nIntergalacticTransmissionTest > 0x0300 is decoded to 0x02 SKIPPED\\n\\nIntergalacticTransmissionTest > 0xc001c0de is transmitted as 0xc000711be1 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x00 is transmitted as 0x0000 SKIPPED\\n\\nIntergalacticTransmissionTest > twenty byte message SKIPPED\\n\\nIntergalacticTransmissionTest > 0x02 is transmitted as 0x0300 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x06 is transmitted as 0x0600 SKIPPED\\n\\nIntergalacticTransmissionTest > six byte message SKIPPED\\n\\nIntergalacticTransmissionTest > 0xcf4b00 is decoded to 0xce94 SKIPPED\\n\\nIntergalacticTransmissionTest > 0x29 is transmitted as 0x2881 SKIPPED\\n\\nIntergalacticTransmissionTest > twenty byte message SKIPPED\\n\\nIntergalacticTransmissionTest > eight byte message SKIPPED\\n\\nIntergalacticTransmissionTest > empty message SKIPPED\\n\\nIntergalacticTransmissionTest > six byte message SKIPPED\\n3 actionable tasks: 3 executed\\n\",\n    \"stderr\": \"\\n26 tests completed, 1 failed, 25 skipped\\n\\nFAILURE: Build failed with an exception.\\n\\n* What went wrong:\\nExecution failed for task ':test'.\\n> There were failing tests. See the report at: file:///private/var/folders/t8/8t09b9sd6dj7k0sb699sbsy80000gn/T/r58-t029-failing-82fmuorx/intergalactic-transmission/build/reports/tests/test/index.html\\n\\n* Try:\\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\\n\\nBUILD FAILED in 947ms\\n\",\n    \"timed_out\": false\n  },\n  \"runner_error\": null,\n  \"interrupted\": false,\n  \"scratch_cleaned\": true,\n  \"test_report_files\": 1,\n  \"learner_hashes_after\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"learner_hashes_match\": true,\n  \"runner_returncode\": 1,\n  \"actual\": {\n    \"runner_returncode\": 1,\n    \"gradle_returncode\": 1,\n    \"test_counts\": {\n      \"tests\": 26,\n      \"failures\": 1,\n      \"errors\": 0,\n      \"skipped\": 25,\n      \"executed\": 1\n    },\n    \"learner_hashes_match\": true,\n    \"scratch_cleaned\": true\n  }\n}\n",
+        "stderr": "",
+        "timed_out": false
+      },
+      "report": {
+        "variant": "failing",
+        "config": {
+          "solution": [
+            "src/main/java/IntergalacticTransmission.java"
+          ],
+          "test": [
+            "src/test/java/IntergalacticTransmissionTest.java"
+          ],
+          "example": [
+            ".meta/src/reference/java/IntergalacticTransmission.java"
+          ],
+          "invalidator": [
+            "build.gradle"
+          ]
+        },
+        "expected": {
+          "runner_returncode": "nonzero",
+          "gradle_returncode": "nonzero",
+          "minimum_failures": 1
+        },
+        "learner_hashes_before": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "test_counts": {
+          "tests": 26,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 25,
+          "executed": 1
+        },
+        "gradle": {
+          "command": [
+            "./gradlew",
+            "test"
+          ],
+          "returncode": 1,
+          "stdout": "> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test FAILED\n\nIntergalacticTransmissionTest > last byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > 0x05 is transmitted as 0x0581 SKIPPED\n\nIntergalacticTransmissionTest > 0xe2566500 is decoded to 0xe2ad90 SKIPPED\n\nIntergalacticTransmissionTest > seven byte message SKIPPED\n\nIntergalacticTransmissionTest > eight byte message SKIPPED\n\nIntergalacticTransmissionTest > calculate transmit sequences FAILED\n    org.opentest4j.AssertionFailedError: \n    expected: []\n     but was: [1]\n        at java.base@21.0.13.1/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n        at java.base@21.0.13.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\n        at app//IntergalacticTransmissionTest.calculateTransmitSequencesEmptyMessage(IntergalacticTransmissionTest.java:18)\n\nIntergalacticTransmissionTest > 0x2881 is decoded to 0x29 SKIPPED\n\nIntergalacticTransmissionTest > second byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > zero message SKIPPED\n\nIntergalacticTransmissionTest > at 7 bytes long, no padding is required SKIPPED\n\nIntergalacticTransmissionTest > wrong parity on 16th byte SKIPPED\n\nIntergalacticTransmissionTest > 0x0581 is decoded to 0x05 SKIPPED\n\nIntergalacticTransmissionTest > first byte has wrong parity SKIPPED\n\nIntergalacticTransmissionTest > 0x0300 is decoded to 0x02 SKIPPED\n\nIntergalacticTransmissionTest > 0xc001c0de is transmitted as 0xc000711be1 SKIPPED\n\nIntergalacticTransmissionTest > 0x00 is transmitted as 0x0000 SKIPPED\n\nIntergalacticTransmissionTest > twenty byte message SKIPPED\n\nIntergalacticTransmissionTest > 0x02 is transmitted as 0x0300 SKIPPED\n\nIntergalacticTransmissionTest > 0x06 is transmitted as 0x0600 SKIPPED\n\nIntergalacticTransmissionTest > six byte message SKIPPED\n\nIntergalacticTransmissionTest > 0xcf4b00 is decoded to 0xce94 SKIPPED\n\nIntergalacticTransmissionTest > 0x29 is transmitted as 0x2881 SKIPPED\n\nIntergalacticTransmissionTest > twenty byte message SKIPPED\n\nIntergalacticTransmissionTest > eight byte message SKIPPED\n\nIntergalacticTransmissionTest > empty message SKIPPED\n\nIntergalacticTransmissionTest > six byte message SKIPPED\n3 actionable tasks: 3 executed\n",
+          "stderr": "\n26 tests completed, 1 failed, 25 skipped\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':test'.\n> There were failing tests. See the report at: file:///private/var/folders/t8/8t09b9sd6dj7k0sb699sbsy80000gn/T/r58-t029-failing-82fmuorx/intergalactic-transmission/build/reports/tests/test/index.html\n\n* Try:\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\n\nBUILD FAILED in 947ms\n",
+          "timed_out": false
+        },
+        "runner_error": null,
+        "interrupted": false,
+        "scratch_cleaned": true,
+        "test_report_files": 1,
+        "learner_hashes_after": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "learner_hashes_match": true,
+        "runner_returncode": 1,
+        "actual": {
+          "runner_returncode": 1,
+          "gradle_returncode": 1,
+          "test_counts": {
+            "tests": 26,
+            "failures": 1,
+            "errors": 0,
+            "skipped": 25,
+            "executed": 1
+          },
+          "learner_hashes_match": true,
+          "scratch_cleaned": true
+        }
+      },
+      "passed": true
+    },
+    "empty": {
+      "expected": "runner exits non-zero when zero tests execute",
+      "process": {
+        "command": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "/Users/adityasoni/exercism-java/tools/course_checks/r58-t029.py",
+          "--variant",
+          "empty"
+        ],
+        "returncode": 1,
+        "stdout": "{\n  \"variant\": \"empty\",\n  \"config\": {\n    \"solution\": [\n      \"src/main/java/IntergalacticTransmission.java\"\n    ],\n    \"test\": [\n      \"src/test/java/IntergalacticTransmissionTest.java\"\n    ],\n    \"example\": [\n      \".meta/src/reference/java/IntergalacticTransmission.java\"\n    ],\n    \"invalidator\": [\n      \"build.gradle\"\n    ]\n  },\n  \"expected\": {\n    \"runner_returncode\": \"nonzero\",\n    \"gradle_returncode\": 0,\n    \"executed\": 0\n  },\n  \"learner_hashes_before\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"test_counts\": {\n    \"tests\": 0,\n    \"failures\": 0,\n    \"errors\": 0,\n    \"skipped\": 0,\n    \"executed\": 0\n  },\n  \"gradle\": {\n    \"command\": [\n      \"./gradlew\",\n      \"test\"\n    ],\n    \"returncode\": 1,\n    \"stdout\": \"> Task :compileJava\\n> Task :processResources NO-SOURCE\\n> Task :classes\\n> Task :compileTestJava\\n> Task :processTestResources NO-SOURCE\\n> Task :testClasses\\n> Task :test FAILED\\n3 actionable tasks: 3 executed\\n\",\n    \"stderr\": \"\\nFAILURE: Build failed with an exception.\\n\\n* What went wrong:\\nExecution failed for task ':test'.\\n> There are test sources present and no filters are applied, but the test task did not discover any tests to execute. This is likely due to a misconfiguration. Please check your test configuration. If this is not a misconfiguration, this error can be disabled by setting the 'failOnNoDiscoveredTests' property to false.\\n\\n* Try:\\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\\n\\nBUILD FAILED in 829ms\\n\",\n    \"timed_out\": false\n  },\n  \"runner_error\": \"zero tests executed\",\n  \"interrupted\": false,\n  \"scratch_cleaned\": true,\n  \"test_report_files\": 0,\n  \"learner_hashes_after\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"learner_hashes_match\": true,\n  \"runner_returncode\": 1,\n  \"actual\": {\n    \"runner_returncode\": 1,\n    \"gradle_returncode\": 1,\n    \"test_counts\": {\n      \"tests\": 0,\n      \"failures\": 0,\n      \"errors\": 0,\n      \"skipped\": 0,\n      \"executed\": 0\n    },\n    \"learner_hashes_match\": true,\n    \"scratch_cleaned\": true\n  }\n}\n",
+        "stderr": "",
+        "timed_out": false
+      },
+      "report": {
+        "variant": "empty",
+        "config": {
+          "solution": [
+            "src/main/java/IntergalacticTransmission.java"
+          ],
+          "test": [
+            "src/test/java/IntergalacticTransmissionTest.java"
+          ],
+          "example": [
+            ".meta/src/reference/java/IntergalacticTransmission.java"
+          ],
+          "invalidator": [
+            "build.gradle"
+          ]
+        },
+        "expected": {
+          "runner_returncode": "nonzero",
+          "gradle_returncode": 0,
+          "executed": 0
+        },
+        "learner_hashes_before": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "test_counts": {
+          "tests": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "executed": 0
+        },
+        "gradle": {
+          "command": [
+            "./gradlew",
+            "test"
+          ],
+          "returncode": 1,
+          "stdout": "> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n> Task :test FAILED\n3 actionable tasks: 3 executed\n",
+          "stderr": "\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':test'.\n> There are test sources present and no filters are applied, but the test task did not discover any tests to execute. This is likely due to a misconfiguration. Please check your test configuration. If this is not a misconfiguration, this error can be disabled by setting the 'failOnNoDiscoveredTests' property to false.\n\n* Try:\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\n\nBUILD FAILED in 829ms\n",
+          "timed_out": false
+        },
+        "runner_error": "zero tests executed",
+        "interrupted": false,
+        "scratch_cleaned": true,
+        "test_report_files": 0,
+        "learner_hashes_after": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "learner_hashes_match": true,
+        "runner_returncode": 1,
+        "actual": {
+          "runner_returncode": 1,
+          "gradle_returncode": 1,
+          "test_counts": {
+            "tests": 0,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "executed": 0
+          },
+          "learner_hashes_match": true,
+          "scratch_cleaned": true
+        }
+      },
+      "passed": true
+    },
+    "interrupt": {
+      "expected": "runner exits 130 and cleans temporary copy",
+      "process": {
+        "command": [
+          "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+          "/Users/adityasoni/exercism-java/tools/course_checks/r58-t029.py",
+          "--variant",
+          "interrupt"
+        ],
+        "returncode": 130,
+        "stdout": "{\n  \"variant\": \"interrupt\",\n  \"config\": {\n    \"solution\": [\n      \"src/main/java/IntergalacticTransmission.java\"\n    ],\n    \"test\": [\n      \"src/test/java/IntergalacticTransmissionTest.java\"\n    ],\n    \"example\": [\n      \".meta/src/reference/java/IntergalacticTransmission.java\"\n    ],\n    \"invalidator\": [\n      \"build.gradle\"\n    ]\n  },\n  \"expected\": {\n    \"runner_returncode\": 130,\n    \"scratch_cleaned\": true\n  },\n  \"learner_hashes_before\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"test_counts\": null,\n  \"gradle\": null,\n  \"runner_error\": \"simulated KeyboardInterrupt after scratch copy\",\n  \"interrupted\": true,\n  \"scratch_cleaned\": true,\n  \"learner_hashes_after\": {\n    \"exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java\": \"0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce\"\n  },\n  \"learner_hashes_match\": true,\n  \"runner_returncode\": 130,\n  \"actual\": {\n    \"runner_returncode\": 130,\n    \"gradle_returncode\": null,\n    \"test_counts\": null,\n    \"learner_hashes_match\": true,\n    \"scratch_cleaned\": true\n  }\n}\n",
+        "stderr": "",
+        "timed_out": false
+      },
+      "report": {
+        "variant": "interrupt",
+        "config": {
+          "solution": [
+            "src/main/java/IntergalacticTransmission.java"
+          ],
+          "test": [
+            "src/test/java/IntergalacticTransmissionTest.java"
+          ],
+          "example": [
+            ".meta/src/reference/java/IntergalacticTransmission.java"
+          ],
+          "invalidator": [
+            "build.gradle"
+          ]
+        },
+        "expected": {
+          "runner_returncode": 130,
+          "scratch_cleaned": true
+        },
+        "learner_hashes_before": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "test_counts": null,
+        "gradle": null,
+        "runner_error": "simulated KeyboardInterrupt after scratch copy",
+        "interrupted": true,
+        "scratch_cleaned": true,
+        "learner_hashes_after": {
+          "exercises/practice/intergalactic-transmission/src/main/java/IntergalacticTransmission.java": "0f88e106282632347d7135f90a77e3cfe999fe260327289c26a1ca4372f007ce"
+        },
+        "learner_hashes_match": true,
+        "runner_returncode": 130,
+        "actual": {
+          "runner_returncode": 130,
+          "gradle_returncode": null,
+          "test_counts": null,
+          "learner_hashes_match": true,
+          "scratch_cleaned": true
+        }
+      },
+      "passed": true
+    }
+  }
+}
