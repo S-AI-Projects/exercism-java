@@ -1,0 +1,93 @@
+{
+  "task": "R58-T007",
+  "exercise": "saddle-points",
+  "timestamp_unix": 1795181158,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "language_construct_analysis": {
+    "selected_construct": "primitive versus boxed values",
+    "examined_constructs": {
+      "collection_mutation": "Not used. Collections.max reads the row list without modifying its contents or size.",
+      "exception_contracts": "Not used. getRowMax does not declare, catch, or customize an exception contract.",
+      "primitive_versus_boxed_values": "Actually used. The matrix stores List<List<Integer>> (boxed Integer objects). Collections.max returns Integer, which is auto-unboxed to primitive int by getRowMax."
+    },
+    "relevance_to_exercise": "Unboxing to primitive int ensures numeric equality comparison via ==. Boxed Integer comparison with == tests reference identity, failing for values outside the [-128, 127] cache."
+  },
+  "micro_example": {
+    "source_file": "work/R58-T007/SaddlePointsBoxedPrimitiveExample.java",
+    "expected_output": [
+      "true",
+      "false"
+    ],
+    "actual_output": [
+      "true",
+      "false"
+    ]
+  },
+  "tests": {
+    "total": 9,
+    "executed": 9,
+    "passed": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "named_cases": {
+    "testCanIdentifySingleSaddlePoint": {
+      "display_name": "Can identify single saddle point",
+      "uuid": "3e374e63-a2e0-4530-a39a-d53c560382bd",
+      "status": "PASSED"
+    },
+    "testCanIdentifyThatEmptyMatrixHasNoSaddlePoints": {
+      "display_name": "Can identify that empty matrix has no saddle points",
+      "uuid": "6b501e2b-6c1f-491f-b1bb-7f278f760534",
+      "status": "PASSED"
+    },
+    "testCanIdentifyLackOfSaddlePointsWhenThereAreNone": {
+      "display_name": "Can identify lack of saddle points when there are none",
+      "uuid": "8c27cc64-e573-4fcb-a099-f0ae863fb02f",
+      "status": "PASSED"
+    },
+    "testCanIdentifyMultipleSaddlePointsInAColumn": {
+      "display_name": "Can identify multiple saddle points in a column",
+      "uuid": "6d1399bd-e105-40fd-a2c9-c6609507d7a3",
+      "status": "PASSED"
+    },
+    "testCanIdentifyMultipleSaddlePointsInARow": {
+      "display_name": "Can identify multiple saddle points in a Row",
+      "uuid": "3e81dce9-53b3-44e6-bf26-e328885fd5d1",
+      "status": "PASSED"
+    },
+    "testCanIdentifySaddlePointInBottomRightCorner": {
+      "display_name": "Can identify saddle point in bottom right corner",
+      "uuid": "88868621-b6f4-4837-bb8b-3fad8b25d46b",
+      "status": "PASSED"
+    },
+    "testCanIdentifySaddlePointsInANonSquareMatrix": {
+      "display_name": "Can identify saddle points in a non square matrix",
+      "uuid": "5b9499ca-fcea-4195-830a-9c4584a0ee79",
+      "status": "PASSED"
+    },
+    "testCanIdentifyThatSaddlePointsInASingleColumnMatrixAreThoseWithMinimumValue": {
+      "display_name": "Can identify that saddle points in a single column matrix are those with the minimum value",
+      "uuid": "ee99ccd2-a1f1-4283-ad39-f8c70f0cf594",
+      "status": "PASSED"
+    },
+    "testCanIdentifyThatSaddlePointsInASingleRowMatrixAreThoseWithMaximumValue": {
+      "display_name": "Can identify that saddle points in a single row matrix are those with the maximum value",
+      "uuid": "63abf709-a84b-407f-a1b3-456638689713",
+      "status": "PASSED"
+    }
+  },
+  "checks": {
+    "reference_tests_passed": true,
+    "micro_example_asserted": true,
+    "published_hint_agrees": true,
+    "working_tree_unchanged": true
+  }
+}
