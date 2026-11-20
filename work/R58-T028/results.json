@@ -1,0 +1,153 @@
+{
+  "created_utc": "2026-11-20T17:23:17.622154+00:00",
+  "inputs": {
+    "config_path": "exercises/practice/nucleotide-count/.meta/config.json",
+    "files": {
+      "solution": [
+        "src/main/java/NucleotideCounter.java"
+      ],
+      "test": [
+        "src/test/java/NucleotideCounterTest.java"
+      ],
+      "example": [
+        ".meta/src/reference/java/NucleotideCounter.java"
+      ],
+      "invalidator": [
+        "build.gradle"
+      ]
+    },
+    "reference_paths": [
+      "exercises/practice/nucleotide-count/.meta/src/reference/java/NucleotideCounter.java"
+    ]
+  },
+  "expected": {
+    "real_config": "all declared role paths exist inside the exercise",
+    "fixtures": [
+      "missing reference rejected",
+      "missing test rejected",
+      "outside-exercise traversal rejected"
+    ],
+    "gradle": "return code 0 and at least one test reported"
+  },
+  "java_version": {
+    "command": [
+      "java",
+      "-version"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "openjdk version \"21.0.13.1\" 2026-11-17\nOpenJDK Runtime Environment Homebrew (build 21.0.13.1)\nOpenJDK 64-Bit Server VM Homebrew (build 21.0.13.1, mixed mode, sharing)\n"
+  },
+  "javac_version": {
+    "command": [
+      "javac",
+      "-version"
+    ],
+    "returncode": 0,
+    "stdout": "javac 21.0.13.1\n",
+    "stderr": ""
+  },
+  "python_version": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Python 3.14.7\n",
+    "stderr": ""
+  },
+  "path_checker": {
+    "command": [
+      "python3",
+      "/Users/adityasoni/exercism-java/tools/course_checks/r58-t028.py"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"real_config\": {\n    \"passed\": true,\n    \"checked_files\": [\n      {\n        \"role\": \"solution\",\n        \"path\": \"src/main/java/NucleotideCounter.java\"\n      },\n      {\n        \"role\": \"test\",\n        \"path\": \"src/test/java/NucleotideCounterTest.java\"\n      },\n      {\n        \"role\": \"example\",\n        \"path\": \".meta/src/reference/java/NucleotideCounter.java\"\n      },\n      {\n        \"role\": \"invalidator\",\n        \"path\": \"build.gradle\"\n      }\n    ],\n    \"editor_role_declared\": false\n  },\n  \"fixtures\": [\n    {\n      \"name\": \"missing_reference\",\n      \"expected_code\": \"missing_file\",\n      \"actual\": {\n        \"code\": \"missing_file\",\n        \"detail\": \"files.example path does not exist: .meta/src/reference/java/Example.java\"\n      },\n      \"passed\": true\n    },\n    {\n      \"name\": \"missing_test\",\n      \"expected_code\": \"missing_file\",\n      \"actual\": {\n        \"code\": \"missing_file\",\n        \"detail\": \"files.test path does not exist: src/test/java/ExerciseTest.java\"\n      },\n      \"passed\": true\n    },\n    {\n      \"name\": \"outside_exercise\",\n      \"expected_code\": \"outside_exercise\",\n      \"actual\": {\n        \"code\": \"outside_exercise\",\n        \"detail\": \"files.example path escapes exercise: ../../outside/Example.java\"\n      },\n      \"passed\": true\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  "path_report": {
+    "real_config": {
+      "passed": true,
+      "checked_files": [
+        {
+          "role": "solution",
+          "path": "src/main/java/NucleotideCounter.java"
+        },
+        {
+          "role": "test",
+          "path": "src/test/java/NucleotideCounterTest.java"
+        },
+        {
+          "role": "example",
+          "path": ".meta/src/reference/java/NucleotideCounter.java"
+        },
+        {
+          "role": "invalidator",
+          "path": "build.gradle"
+        }
+      ],
+      "editor_role_declared": false
+    },
+    "fixtures": [
+      {
+        "name": "missing_reference",
+        "expected_code": "missing_file",
+        "actual": {
+          "code": "missing_file",
+          "detail": "files.example path does not exist: .meta/src/reference/java/Example.java"
+        },
+        "passed": true
+      },
+      {
+        "name": "missing_test",
+        "expected_code": "missing_file",
+        "actual": {
+          "code": "missing_file",
+          "detail": "files.test path does not exist: src/test/java/ExerciseTest.java"
+        },
+        "passed": true
+      },
+      {
+        "name": "outside_exercise",
+        "expected_code": "outside_exercise",
+        "actual": {
+          "code": "outside_exercise",
+          "detail": "files.example path escapes exercise: ../../outside/Example.java"
+        },
+        "passed": true
+      }
+    ]
+  },
+  "reference_gradle": {
+    "command": [
+      "./gradlew",
+      "test",
+      "--no-daemon"
+    ],
+    "returncode": 0,
+    "stdout": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nNucleotideCounterTest > can count one nucleotide in single-character input SKIPPED\n\nNucleotideCounterTest > strand with multiple nucleotides SKIPPED\n\nNucleotideCounterTest > empty strand PASSED\n\nNucleotideCounterTest > strand with invalid nucleotides SKIPPED\n\nNucleotideCounterTest > strand with repeated nucleotide SKIPPED\n\nBUILD SUCCESSFUL in 38s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+    "stderr": ""
+  },
+  "test_counts": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 4
+  },
+  "learner_solution_hashes_before": {
+    "exercises/practice/nucleotide-count/src/main/java/NucleotideCounter.java": "c6a227958bc66edd1d555a9b7f26535378b8f580adc79c083162cfdc04851c99"
+  },
+  "learner_solution_hashes_after": {
+    "exercises/practice/nucleotide-count/src/main/java/NucleotideCounter.java": "c6a227958bc66edd1d555a9b7f26535378b8f580adc79c083162cfdc04851c99"
+  },
+  "actual": {
+    "learner_solution_unchanged": true,
+    "gradle_returncode": 0,
+    "tests": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4
+    }
+  }
+}
