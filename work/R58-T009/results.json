@@ -1,0 +1,156 @@
+{
+  "task": "R58-T009",
+  "exercise": "parallel-letter-frequency",
+  "timestamp_unix": 1795184453,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "metadata_validation": {
+    "real_config": "PASSED: all real config.json file roles resolve inside the exercise.",
+    "fixtures": {
+      "missing_reference": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "example: missing file: .meta/src/reference/java/MissingReference.java"
+      },
+      "missing_test": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "test: missing file: src/test/java/MissingTest.java"
+      },
+      "outside_exercise": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "solution: path escapes exercise: ../../README.md"
+      }
+    }
+  },
+  "file_map": {
+    "solution": [
+      "src/main/java/ParallelLetterFrequency.java"
+    ],
+    "test": [
+      "src/test/java/ParallelLetterFrequencyTest.java"
+    ],
+    "example": [
+      ".meta/src/reference/java/ParallelLetterFrequency.java"
+    ],
+    "invalidator": [
+      "build.gradle"
+    ]
+  },
+  "tests": {
+    "total": 13,
+    "executed": 13,
+    "passed": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "canonical_cases": {
+    "testNoTexts": {
+      "display_name": "no texts",
+      "uuid": "c054d642-c1fa-4234-8007-9339f2337886",
+      "status": "PASSED"
+    },
+    "testOneTextWithOneLetter": {
+      "display_name": "one text with one letter",
+      "uuid": "818031be-49dc-4675-b2f9-c4047f638a2a",
+      "status": "PASSED"
+    },
+    "testOneTextWithMultipleLetters": {
+      "display_name": "one text with multiple letters",
+      "uuid": "c0b81d1b-940d-4cea-9f49-8445c69c17ae",
+      "status": "PASSED"
+    },
+    "testTwoTextsWithOneLetter": {
+      "display_name": "two texts with one letter",
+      "uuid": "708ff1e0-f14a-43fd-adb5-e76750dcf108",
+      "status": "PASSED"
+    },
+    "testTwoTextsWithMultipleLetters": {
+      "display_name": "two texts with multiple letters",
+      "uuid": "1b5c28bb-4619-4c9d-8db9-a4bb9c3bdca0",
+      "status": "PASSED"
+    },
+    "testIgnoreLetterCasing": {
+      "display_name": "ignore letter casing",
+      "uuid": "6366e2b8-b84c-4334-a047-03a00a656d63",
+      "status": "PASSED"
+    },
+    "testIgnoreWhitespace": {
+      "display_name": "ignore whitespace",
+      "uuid": "92ebcbb0-9181-4421-a784-f6f5aa79f75b",
+      "status": "PASSED"
+    },
+    "testIgnorePunctuation": {
+      "display_name": "ignore punctuation",
+      "uuid": "bc5f4203-00ce-4acc-a5fa-f7b865376fd9",
+      "status": "PASSED"
+    },
+    "testIgnoreNumbers": {
+      "display_name": "ignore numbers",
+      "uuid": "68032b8b-346b-4389-a380-e397618f6831",
+      "status": "PASSED"
+    },
+    "testUnicodeLetters": {
+      "display_name": "Unicode letters",
+      "uuid": "aa9f97ac-3961-4af1-88e7-6efed1bfddfd",
+      "status": "PASSED"
+    },
+    "testCombinationOfLowerAndUppercaseLettersPunctuationAndWhiteSpace": {
+      "display_name": "combination of lower- and uppercase letters, punctuation and white space",
+      "uuid": "7b1da046-701b-41fc-813e-dcfb5ee51813",
+      "status": "PASSED"
+    },
+    "testLargeTexts": {
+      "display_name": "large texts",
+      "uuid": "4727f020-df62-4dcf-99b2-a6e58319cb4f",
+      "status": "PASSED"
+    },
+    "testManySmallTexts": {
+      "display_name": "many small texts",
+      "uuid": "adf8e57b-8e54-4483-b6b8-8b32c115884c",
+      "status": "PASSED"
+    }
+  },
+  "anchor_case": {
+    "method": "testLargeTexts",
+    "display_name": "large texts",
+    "text_substring": "s the result of forty years underground! Allow me to indulge my fancy.",
+    "status": "PASSED"
+  },
+  "runs": {
+    "maintained_reference": {
+      "return_code": 0,
+      "executed": 13,
+      "passed": 13,
+      "failures": 0,
+      "errors": 0,
+      "status": "PASSED"
+    },
+    "deliberately_failing_mutant": {
+      "return_code": 1,
+      "executed": 13,
+      "passed": 4,
+      "failures": 9,
+      "errors": 0,
+      "status": "REJECTED_AS_EXPECTED"
+    },
+    "empty_test_selection": {
+      "return_code": 1,
+      "executed": 0,
+      "status": "REJECTED_AS_EXPECTED"
+    }
+  },
+  "checks": {
+    "reference_tests_passed": true,
+    "mutant_rejected": true,
+    "empty_selection_rejected": true,
+    "maintenance_doc_verified": true,
+    "working_tree_unchanged": true,
+    "real_config_passed": true,
+    "all_three_negative_fixtures_rejected": true
+  }
+}
