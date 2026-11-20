@@ -1,0 +1,73 @@
+{
+  "task": "R58-T006",
+  "exercise": "split-second-stopwatch",
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "inputs": {
+    "exercise": "exercises/practice/split-second-stopwatch",
+    "named_cases": [
+      {
+        "method": "startInitiatesTimeTrackingForCurrentLap",
+        "display_name": "start initiates time tracking for current lap",
+        "uuid": "491487b1-593d-423e-a075-aa78d449ff1f",
+        "expected": "00:00:05"
+      },
+      {
+        "method": "lapAddsCurrentLapToPreviousLaps",
+        "display_name": "lap adds current lap to previous laps",
+        "uuid": "091966e3-ed25-4397-908b-8bb0330118f8",
+        "expected": "[\"00:00:10\"]"
+      },
+      {
+        "method": "supportsVeryLongLaps",
+        "display_name": "supports very long laps",
+        "uuid": "0b01751a-cb57-493f-bb86-409de6e84306",
+        "expected": "14:08:30"
+      }
+    ],
+    "approaches_compared": [
+      {
+        "name": "Reference (Continuous Wall-Clock / Epoch Offset Model)",
+        "file": ".meta/src/reference/java/SplitSecondStopwatch.java"
+      },
+      {
+        "name": "Alternative (Discrete Duration Accumulation Model)",
+        "file": "work/R58-T006/AlternativeSplitSecondStopwatch.java"
+      }
+    ]
+  },
+  "checks": {
+    "reference": {
+      "exit_code": 0,
+      "tests_total": 29,
+      "tests_passed": 29,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "startInitiatesTimeTrackingForCurrentLap": "PASSED",
+        "lapAddsCurrentLapToPreviousLaps": "PASSED",
+        "supportsVeryLongLaps": "PASSED"
+      }
+    },
+    "alternative": {
+      "exit_code": 0,
+      "tests_total": 29,
+      "tests_passed": 29,
+      "tests_skipped": 0,
+      "tests_failures": 0,
+      "tests_errors": 0,
+      "named_cases": {
+        "startInitiatesTimeTrackingForCurrentLap": "PASSED",
+        "lapAddsCurrentLapToPreviousLaps": "PASSED",
+        "supportsVeryLongLaps": "PASSED"
+      },
+      "agrees_with_reference": true,
+      "all_cases_agreement": true
+    }
+  }
+}
