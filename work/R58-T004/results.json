@@ -1,0 +1,160 @@
+{
+  "task": "R58-T004",
+  "exercise": "yacht",
+  "timestamp_unix": 1795170581,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "readability_improvements": {
+    "ambiguous_local_state_renamed": {
+      "before": "Collection<Long> occurrences",
+      "after": "Collection<Long> dieFaceCounts",
+      "purpose": "Distinguishes frequency count values from observed face values"
+    },
+    "extracted_coherent_calculation": {
+      "method": "private Map<Integer, Long> dieFrequencies()",
+      "purpose": "Encapsulates duplicated stream frequency grouping used in FULL_HOUSE and FOUR_OF_A_KIND"
+    },
+    "lambda_variable_clarified": {
+      "before": "x -> x.getValue() >= 4",
+      "after": "entry -> entry.getValue() >= 4"
+    },
+    "invariants_documented": [
+      "5 dice rolled with faces 1..6 inclusively",
+      "Full House invariant: exactly 3 of one face and 2 of another face",
+      "Four of a Kind invariant: at least 4 dice of same face, scoring 4 times that face"
+    ],
+    "api_preserved": [
+      "Yacht(int[] dice, YachtCategory yachtCategory)",
+      "int score()"
+    ]
+  },
+  "tests": {
+    "total_canonical": 29,
+    "executed": 29,
+    "passed": 29,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "before_after_agreement": true
+  },
+  "named_cases": {
+    "yacht": {
+      "display_name": "Yacht",
+      "uuid": "3060e4a5-4063-4deb-a380-a630b43a84b6",
+      "category": "YACHT",
+      "dice": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "expected_score": 50,
+      "status": "PASSED"
+    },
+    "notYacht": {
+      "display_name": "Not Yacht",
+      "uuid": "15026df2-f567-482f-b4d5-5297d57769d9",
+      "category": "YACHT",
+      "dice": [
+        1,
+        3,
+        3,
+        2,
+        5
+      ],
+      "expected_score": 0,
+      "status": "PASSED"
+    },
+    "yachtCountedAsThrees": {
+      "display_name": "Yacht counted as threes",
+      "uuid": "f6125417-5c8a-4bca-bc5b-b4b76d0d28c8",
+      "category": "THREES",
+      "dice": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "expected_score": 15,
+      "status": "PASSED"
+    },
+    "fullHouseTwoSmallThreeBig": {
+      "display_name": "Full house two small, three big",
+      "uuid": "51cb26db-6b24-49af-a9ff-12f53b252eea",
+      "category": "FULL_HOUSE",
+      "dice": [
+        2,
+        2,
+        4,
+        4,
+        4
+      ],
+      "expected_score": 16,
+      "status": "PASSED"
+    },
+    "fourOfAKind": {
+      "display_name": "Four of a Kind",
+      "uuid": "b286084d-0568-4460-844a-ba79d71d79c6",
+      "category": "FOUR_OF_A_KIND",
+      "dice": [
+        6,
+        6,
+        4,
+        6,
+        6
+      ],
+      "expected_score": 24,
+      "status": "PASSED"
+    },
+    "yachtIsNotAFullHouse": {
+      "display_name": "Yacht is not a full house",
+      "uuid": "32a3f4ee-9142-4edf-ba70-6c0f96eb4b0c",
+      "category": "FULL_HOUSE",
+      "dice": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected_score": 0,
+      "status": "PASSED"
+    },
+    "yachtCanBeScoredAsFourOfAKind": {
+      "display_name": "Yacht can be scored as Four of a Kind",
+      "uuid": "f25c0c90-5397-4732-9779-b1e9b5f612ca",
+      "category": "FOUR_OF_A_KIND",
+      "dice": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "expected_score": 12,
+      "status": "PASSED"
+    },
+    "yachtAsChoice": {
+      "display_name": "Yacht as choice",
+      "uuid": "b524c0cf-32d2-4b40-8fb3-be3500f3f135",
+      "category": "CHOICE",
+      "dice": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expected_score": 10,
+      "status": "PASSED"
+    }
+  },
+  "working_tree_learner_stub_unmodified": true
+}

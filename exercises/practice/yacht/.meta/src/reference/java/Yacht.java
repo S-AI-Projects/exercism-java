@@ -13,6 +13,13 @@ class Yacht {
         this.yachtCategory = yachtCategory;
     }
 
+    // Exercise invariant: exactly 5 dice are presented, each showing face 1 through 6 inclusively.
+    private Map<Integer, Long> dieFrequencies() {
+        return Arrays.stream(dice)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
+
     int score() {
         switch(this.yachtCategory) {
             case ONES:
@@ -40,18 +47,15 @@ class Yacht {
                         .filter(n -> n == 6)
                         .sum();
             case FULL_HOUSE:
-                Collection<Long> occurrences = Arrays.stream(dice)
-                        .boxed()
-                        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                        .values();
-                return occurrences.contains(2L) && occurrences.contains(3L) ? Arrays.stream(dice).sum() : 0;
+                // Full House invariant: exactly three of one face and two of another.
+                Collection<Long> dieFaceCounts = dieFrequencies().values();
+                return dieFaceCounts.contains(2L) && dieFaceCounts.contains(3L) ? Arrays.stream(dice).sum() : 0;
             case FOUR_OF_A_KIND:
-                return Arrays.stream(dice)
-                        .boxed()
-                        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                // Four of a Kind invariant: at least four dice showing the same face, scoring 4 times that face.
+                return dieFrequencies()
                         .entrySet()
                         .stream()
-                        .filter(x -> x.getValue() >= 4)
+                        .filter(entry -> entry.getValue() >= 4)
                         .map(Map.Entry::getKey)
                         .findFirst()
                         .orElse(0) * 4;
