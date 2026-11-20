@@ -1,0 +1,211 @@
+{
+  "task": "R58-T005",
+  "exercise": "knapsack",
+  "timestamp_unix": 1795174742,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "input_size_definition": {
+    "domain_metric": "Record count N (Item records in List<Item>) and Knapsack capacity W (maximumWeight non-negative integer)",
+    "table_dimensions": "(N + 1) rows by (W + 1) columns",
+    "state_space_cells": "(N + 1) * (W + 1) primitive integer cells",
+    "complexity_order": "Theta(N * W) time and Theta(N * W) space"
+  },
+  "tests": {
+    "total_canonical": 8,
+    "included": 7,
+    "executed": 7,
+    "passed": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "named_cases": {
+    "testNoItems": {
+      "display_name": "no items",
+      "uuid": "3993a824-c20e-493d-b3c9-ee8a7753ee59",
+      "weight_limit": 100,
+      "items_count": 0,
+      "expected_value": 0,
+      "status": "PASSED"
+    },
+    "testOneItemTooHeavy": {
+      "display_name": "one item, too heavy",
+      "uuid": "1d39e98c-6249-4a8b-912f-87cb12e506b0",
+      "weight_limit": 10,
+      "items_count": 1,
+      "expected_value": 0,
+      "status": "PASSED"
+    },
+    "testFiveItemsCannotBeGreedyByWeight": {
+      "display_name": "five items (cannot be greedy by weight)",
+      "uuid": "833ea310-6323-44f2-9d27-a278740ffbd8",
+      "weight_limit": 10,
+      "items_count": 5,
+      "expected_value": 21,
+      "status": "PASSED"
+    },
+    "testFiveItemsCannotBeGreedyByValue": {
+      "display_name": "five items (cannot be greedy by value)",
+      "uuid": "277cdc52-f835-4c7d-872b-bff17bab2456",
+      "weight_limit": 10,
+      "items_count": 5,
+      "expected_value": 80,
+      "status": "PASSED"
+    },
+    "testExampleKnapsack": {
+      "display_name": "example knapsack",
+      "uuid": "81d8e679-442b-4f7a-8a59-7278083916c9",
+      "weight_limit": 10,
+      "items_count": 4,
+      "expected_value": 90,
+      "status": "PASSED"
+    },
+    "testEightItems": {
+      "display_name": "8 items",
+      "uuid": "f23a2449-d67c-4c26-bf3e-cde020f27ecc",
+      "weight_limit": 104,
+      "items_count": 8,
+      "expected_value": 900,
+      "status": "PASSED"
+    },
+    "testFifteenItems": {
+      "display_name": "15 items",
+      "uuid": "7c682ae9-c385-4241-a197-d2fa02c81a11",
+      "weight_limit": 750,
+      "items_count": 15,
+      "expected_value": 1458,
+      "status": "PASSED"
+    }
+  },
+  "benchmark_sizes": {
+    "Small": {
+      "size_label": "Small",
+      "test_case_name": "example knapsack",
+      "method": "testExampleKnapsack",
+      "n_items": 4,
+      "capacity_w": 10,
+      "expected_value": 90,
+      "correctness_verified_before_timing": true,
+      "repetitions": 7,
+      "raw_measurements_ns": [
+        500,
+        208,
+        209,
+        291,
+        208,
+        208,
+        209
+      ],
+      "median_time_ns": 209,
+      "median_time_us": 0.209,
+      "operations_table": {
+        "n_items": 4,
+        "capacity_w": 10,
+        "dp_table_cells": 55,
+        "table_rows": 5,
+        "table_cols": 11,
+        "zero_init_iterations": 55,
+        "compute_loop_iterations": 55,
+        "total_loop_iterations": 110,
+        "branch_1_boundary_cells": 15,
+        "branch_2_item_too_heavy": 15,
+        "branch_3_item_fits_evaluated": 25,
+        "math_max_calls": 25,
+        "items_get_calls": 90,
+        "array_reads": 65,
+        "array_writes": 110
+      }
+    },
+    "Medium": {
+      "size_label": "Medium",
+      "test_case_name": "8 items",
+      "method": "testEightItems",
+      "n_items": 8,
+      "capacity_w": 104,
+      "expected_value": 900,
+      "correctness_verified_before_timing": true,
+      "repetitions": 7,
+      "raw_measurements_ns": [
+        1250,
+        1167,
+        1209,
+        1542,
+        1209,
+        1208,
+        1166
+      ],
+      "median_time_ns": 1209,
+      "median_time_us": 1.209,
+      "operations_table": {
+        "n_items": 8,
+        "capacity_w": 104,
+        "dp_table_cells": 945,
+        "table_rows": 9,
+        "table_cols": 105,
+        "zero_init_iterations": 945,
+        "compute_loop_iterations": 945,
+        "total_loop_iterations": 1890,
+        "branch_1_boundary_cells": 113,
+        "branch_2_item_too_heavy": 134,
+        "branch_3_item_fits_evaluated": 698,
+        "math_max_calls": 698,
+        "items_get_calls": 2228,
+        "array_reads": 1530,
+        "array_writes": 1890
+      }
+    },
+    "Large": {
+      "size_label": "Large",
+      "test_case_name": "15 items",
+      "method": "testFifteenItems",
+      "n_items": 15,
+      "capacity_w": 750,
+      "expected_value": 1458,
+      "correctness_verified_before_timing": true,
+      "repetitions": 7,
+      "raw_measurements_ns": [
+        15917,
+        13250,
+        14583,
+        14166,
+        12917,
+        13167,
+        13083
+      ],
+      "median_time_ns": 13250,
+      "median_time_us": 13.25,
+      "operations_table": {
+        "n_items": 15,
+        "capacity_w": 750,
+        "dp_table_cells": 12016,
+        "table_rows": 16,
+        "table_cols": 751,
+        "zero_init_iterations": 12016,
+        "compute_loop_iterations": 12016,
+        "total_loop_iterations": 24032,
+        "branch_1_boundary_cells": 766,
+        "branch_2_item_too_heavy": 1418,
+        "branch_3_item_fits_evaluated": 9832,
+        "math_max_calls": 9832,
+        "items_get_calls": 30914,
+        "array_reads": 21082,
+        "array_writes": 24032
+      }
+    }
+  },
+  "process_startup_compilation_vs_algorithm": {
+    "gradle_test_build_sec": 2.639,
+    "gradle_test_build_ms": 2639.0,
+    "javac_compilation_ms": 220.57,
+    "jvm_benchmark_process_ms": 115.14,
+    "algorithm_median_runtime_large_us": 13.25,
+    "algorithm_fraction_of_gradle_build_percent": 0.000502,
+    "conclusion": "The pure algorithm runtime is on the order of microseconds (0.2 - 13 microseconds across all domain sizes), accounting for less than 0.001% of total Gradle test execution time (~2 seconds). This clearly demonstrates that process startup, class loading, test runner reflection, and Gradle orchestration dominate system elapsed time, while the reference algorithm's work scales strictly according to Theta(N * W)."
+  },
+  "working_tree_learner_stub_unmodified": true
+}

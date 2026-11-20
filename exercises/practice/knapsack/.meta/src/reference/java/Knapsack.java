@@ -1,5 +1,14 @@
 import java.util.List;
 
+/**
+ * Reference implementation for the 0/1 Knapsack exercise.
+ *
+ * Computational Complexity:
+ * - Time Complexity: O(N * W), where N is the number of item records and W is maximumWeight.
+ *   The algorithm fills a 2D dynamic programming grid of size (N + 1) * (W + 1) across two
+ *   nested loops, executing constant-time state updates in each cell.
+ * - Space Complexity: O(N * W), allocating an int[N + 1][W + 1] memoization table.
+ */
 class Knapsack {
 
     int maximumValue(int maximumWeight, List<Item> items) {
