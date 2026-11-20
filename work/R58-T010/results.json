@@ -1,0 +1,101 @@
+{
+  "task": "R58-T010",
+  "exercise": "zebra-puzzle",
+  "timestamp_unix": 1795186515,
+  "status": "PASSED",
+  "tool_versions": {
+    "python": "3.9.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "java": "openjdk version \"21.0.13.0.3\" 2026-10-24",
+    "gradle": "Gradle 9.5.0"
+  },
+  "metadata_validation": {
+    "real_config": "PASSED: all real config.json file roles resolve inside the exercise.",
+    "fixtures": {
+      "missing_reference": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "example: missing file: .meta/src/reference/java/MissingReference.java"
+      },
+      "missing_test": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "test: missing file: src/test/java/MissingTest.java"
+      },
+      "outside_exercise": {
+        "status": "REJECTED_AS_EXPECTED",
+        "error": "solution: path escapes exercise: ../../README.md"
+      }
+    }
+  },
+  "file_map": {
+    "solution": [
+      "src/main/java/ZebraPuzzle.java"
+    ],
+    "test": [
+      "src/test/java/ZebraPuzzleTest.java"
+    ],
+    "example": [
+      ".meta/src/reference/java/ZebraPuzzle.java"
+    ],
+    "invalidator": [
+      "build.gradle"
+    ]
+  },
+  "tests": {
+    "total": 2,
+    "executed": 2,
+    "passed": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "canonical_cases": {
+    "residentWhoDrinksWater": {
+      "display_name": "resident who drinks water",
+      "uuid": "16efb4e4-8ad7-4d5e-ba96-e5537b66fd42",
+      "expected_return": "Norwegian",
+      "status": "PASSED"
+    },
+    "residentWhoOwnsZebra": {
+      "display_name": "resident who owns zebra",
+      "uuid": "084d5b8b-24e2-40e6-b008-c800da8cd257",
+      "expected_return": "Japanese",
+      "status": "PASSED"
+    }
+  },
+  "contract_probe": {
+    "status": "PASSED",
+    "output": "PASS: ZebraPuzzle contract verified (waterDrinker=Norwegian, zebraOwner=Japanese, order-independent, idempotent)."
+  },
+  "runs": {
+    "maintained_reference": {
+      "return_code": 0,
+      "executed": 2,
+      "passed": 2,
+      "failures": 0,
+      "errors": 0,
+      "status": "PASSED"
+    },
+    "deliberately_failing_mutant": {
+      "return_code": 1,
+      "executed": 2,
+      "passed": 1,
+      "failures": 1,
+      "errors": 0,
+      "status": "REJECTED_AS_EXPECTED"
+    },
+    "empty_test_selection": {
+      "return_code": 1,
+      "executed": 0,
+      "status": "REJECTED_AS_EXPECTED"
+    }
+  },
+  "checks": {
+    "reference_tests_passed": true,
+    "mutant_rejected": true,
+    "empty_selection_rejected": true,
+    "guidance_and_maintenance_docs_verified": true,
+    "working_tree_unchanged": true,
+    "real_config_passed": true,
+    "all_three_negative_fixtures_rejected": true
+  }
+}
