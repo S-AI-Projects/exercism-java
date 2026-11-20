@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-11-20T17:15:37.421706+00:00",
+  "java_version": {
+    "command": [
+      "java",
+      "-version"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "openjdk version \"21.0.13.1\" 2026-11-17\nOpenJDK Runtime Environment Homebrew (build 21.0.13.1)\nOpenJDK 64-Bit Server VM Homebrew (build 21.0.13.1, mixed mode, sharing)\n"
+  },
+  "javac_version": {
+    "command": [
+      "javac",
+      "-version"
+    ],
+    "returncode": 0,
+    "stdout": "javac 21.0.13.1\n",
+    "stderr": ""
+  },
+  "python_version": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Python 3.14.7\n",
+    "stderr": ""
+  },
+  "micro_example_expected": "0\nno digits to check",
+  "reference_tests": {
+    "command": [
+      "./gradlew",
+      "test",
+      "--no-daemon"
+    ],
+    "returncode": 0,
+    "stdout": "Fetching distribution.\nDownloading https://services.gradle.org/distributions/gradle-9.5.0-bin.zip\n.............10%.............20%..............30%.............40%.............50%..............60%.............70%..............80%.............90%.............100%\n\nWelcome to Gradle 9.5.0!\n\nHere are the highlights of this release:\n - Task provenance in reports and failure messages\n - Type-safe accessors for precompiled Kotlin Settings plugins\n\nFor more details see https://docs.gradle.org/9.5.0/release-notes.html\n\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nBaseConverterTest > single decimal to binary SKIPPED\n\nBaseConverterTest > decimal to binary SKIPPED\n\nBaseConverterTest > input base is one SKIPPED\n\nBaseConverterTest > binary to single decimal SKIPPED\n\nBaseConverterTest > input base is zero SKIPPED\n\nBaseConverterTest > leading zeros SKIPPED\n\nBaseConverterTest > trinary to hexadecimal SKIPPED\n\nBaseConverterTest > hexadecimal to trinary SKIPPED\n\nBaseConverterTest > output base is zero SKIPPED\n\nBaseConverterTest > empty list SKIPPED\n\nBaseConverterTest > single zero SKIPPED\n\nBaseConverterTest > binary to multiple decimal SKIPPED\n\nBaseConverterTest > output base is negative SKIPPED\n\nBaseConverterTest > 15-bit integer SKIPPED\n\nBaseConverterTest > single bit one to decimal PASSED\n\nBaseConverterTest > invalid positive digit SKIPPED\n\nBaseConverterTest > multiple zeros SKIPPED\n\nBaseConverterTest > negative digit SKIPPED\n\nBaseConverterTest > input base is negative SKIPPED\n\nBaseConverterTest > output base is one SKIPPED\n\nBUILD SUCCESSFUL in 59s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+    "stderr": ""
+  },
+  "test_counts": {
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 19
+  },
+  "micro_example_compile": {
+    "command": [
+      "javac",
+      "DigitMinimumExample.java"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "micro_example_run": {
+    "command": [
+      "java",
+      "DigitMinimumExample"
+    ],
+    "returncode": 0,
+    "stdout": "0\nno digits to check\n",
+    "stderr": ""
+  },
+  "micro_example_actual": "0\nno digits to check",
+  "learner_source_hashes_before": {
+    "exercises/practice/all-your-base/src/main/java/BaseConverter.java": "fe366c96669a1ad0267b44d19982dc57d7abac0ba78bde26cc0ad11f3d8b0184"
+  },
+  "learner_source_hashes_after": {
+    "exercises/practice/all-your-base/src/main/java/BaseConverter.java": "fe366c96669a1ad0267b44d19982dc57d7abac0ba78bde26cc0ad11f3d8b0184"
+  }
+}
