@@ -1,0 +1,156 @@
+{
+  "created_utc": "2026-11-21T03:22:17.329999+00:00",
+  "inputs": {
+    "config_path": "exercises/practice/grep/.meta/config.json",
+    "file_roles": {
+      "solution": [
+        "src/main/java/GrepTool.java"
+      ],
+      "test": [
+        "src/test/java/GrepToolTest.java"
+      ],
+      "example": [
+        ".meta/src/reference/java/GrepTool.java"
+      ],
+      "invalidator": [
+        "build.gradle"
+      ]
+    },
+    "cases": [
+      {
+        "method": "multipleFilesOneMatchMultipleFlags",
+        "display_name": "Multiple files, one match, multiple flags",
+        "pattern": "WITH LOSS OF EDEN, TILL ONE GREATER MAN",
+        "flags": [
+          "-n",
+          "-i",
+          "-x"
+        ],
+        "files": [
+          "iliad.txt",
+          "midsummer-night.txt",
+          "paradise-lost.txt"
+        ],
+        "expected_output": "paradise-lost.txt:4:With loss of Eden, till one greater Man",
+        "actual_output": "paradise-lost.txt:4:With loss of Eden, till one greater Man",
+        "assertion_passed": true
+      },
+      {
+        "method": "multipleFilesSeveralMatchesFileFlagTakesPrecedenceOverLineNumberFlag",
+        "display_name": "Multiple files, several matches, file flag takes precedence over line number flag",
+        "pattern": "who",
+        "flags": [
+          "-n",
+          "-l"
+        ],
+        "files": [
+          "iliad.txt",
+          "midsummer-night.txt",
+          "paradise-lost.txt"
+        ],
+        "expected_output": "iliad.txt\nparadise-lost.txt",
+        "actual_output": "iliad.txt\nparadise-lost.txt",
+        "assertion_passed": true
+      }
+    ]
+  },
+  "expected": {
+    "gradle_returncode": 0,
+    "minimum_executed_tests": 1,
+    "selected_case_outputs_equal_expected": true,
+    "learner_hashes_unchanged": true
+  },
+  "tool_versions": {
+    "python": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Python 3.14.7\n",
+      "stderr": ""
+    },
+    "java": {
+      "command": [
+        "java",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "openjdk version \"21.0.13.1\" 2026-11-17\nOpenJDK Runtime Environment Homebrew (build 21.0.13.1)\nOpenJDK 64-Bit Server VM Homebrew (build 21.0.13.1, mixed mode, sharing)\n"
+    },
+    "javac": {
+      "command": [
+        "javac",
+        "-version"
+      ],
+      "returncode": 0,
+      "stdout": "javac 21.0.13.1\n",
+      "stderr": ""
+    }
+  },
+  "reference_run": {
+    "gradle": {
+      "command": [
+        "./gradlew",
+        "test"
+      ],
+      "returncode": 0,
+      "stdout": "> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nGrepToolTest > Multiple files, no matches, various flags SKIPPED\n\nGrepToolTest > Multiple files, several matches, no flags SKIPPED\n\nGrepToolTest > Multiple files, several matches, inverted flag SKIPPED\n\nGrepToolTest > Multiple files, several matches, print line numbers flag SKIPPED\n\nGrepToolTest > Multiple files, several matches, inverted and match entire lines flags SKIPPED\n\nGrepToolTest > One file, one match, multiple flags SKIPPED\n\nGrepToolTest > One file, several matches, match entire lines flag SKIPPED\n\nGrepToolTest > One file, one match, case-insensitive flag SKIPPED\n\nGrepToolTest > One file, one match, no flags PASSED\n\nGrepToolTest > One file, one match, print file names flag SKIPPED\n\nGrepToolTest > Multiple files, one match, multiple flags PASSED\n\nGrepToolTest > Multiple files, one match, match entire lines flag SKIPPED\n\nGrepToolTest > One file, one match, file flag takes precedence over line flag SKIPPED\n\nGrepToolTest > One file, several matches, inverted and match entire lines flags SKIPPED\n\nGrepToolTest > Multiple files, one match, print file names flag SKIPPED\n\nGrepToolTest > One file, several matches, case-insensitive flag SKIPPED\n\nGrepToolTest > Multiple files, several matches, case-insensitive flag SKIPPED\n\nGrepToolTest > One file, several matches, print line numbers flag SKIPPED\n\nGrepToolTest > One file, one match, match entire lines flag SKIPPED\n\nGrepToolTest > Multiple files, several matches, file flag takes precedence over line number flag PASSED\n\nGrepToolTest > One file, several matches, inverted flag SKIPPED\n\nGrepToolTest > One file, no matches, various flags SKIPPED\n\nGrepToolTest > One file, several matches, no flags SKIPPED\n\nGrepToolTest > Multiple files, one match, no flags SKIPPED\n\nGrepToolTest > One file, one match, print line numbers flag SKIPPED\n\nBUILD SUCCESSFUL in 927ms\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+      "stderr": ""
+    },
+    "test_report_files": 1,
+    "test_counts": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 22,
+      "executed": 3
+    },
+    "cases": [
+      {
+        "method": "multipleFilesOneMatchMultipleFlags",
+        "display_name": "Multiple files, one match, multiple flags",
+        "pattern": "WITH LOSS OF EDEN, TILL ONE GREATER MAN",
+        "flags": [
+          "-n",
+          "-i",
+          "-x"
+        ],
+        "files": [
+          "iliad.txt",
+          "midsummer-night.txt",
+          "paradise-lost.txt"
+        ],
+        "expected_output": "paradise-lost.txt:4:With loss of Eden, till one greater Man",
+        "actual_output": "paradise-lost.txt:4:With loss of Eden, till one greater Man",
+        "assertion_passed": true
+      },
+      {
+        "method": "multipleFilesSeveralMatchesFileFlagTakesPrecedenceOverLineNumberFlag",
+        "display_name": "Multiple files, several matches, file flag takes precedence over line number flag",
+        "pattern": "who",
+        "flags": [
+          "-n",
+          "-l"
+        ],
+        "files": [
+          "iliad.txt",
+          "midsummer-night.txt",
+          "paradise-lost.txt"
+        ],
+        "expected_output": "iliad.txt\nparadise-lost.txt",
+        "actual_output": "iliad.txt\nparadise-lost.txt",
+        "assertion_passed": true
+      }
+    ]
+  },
+  "learner_hashes_before": {
+    "exercises/practice/grep/src/main/java/GrepTool.java": "dfbb561d050877d042de4d10cf4571afb9dc30ff3fd0a8f54031e8f797388e7b"
+  },
+  "learner_hashes_after": {
+    "exercises/practice/grep/src/main/java/GrepTool.java": "dfbb561d050877d042de4d10cf4571afb9dc30ff3fd0a8f54031e8f797388e7b"
+  },
+  "learner_hashes_unchanged": true,
+  "temporary_copy_cleaned": true
+}
