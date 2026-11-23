@@ -1,0 +1,11 @@
+{
+  "exercise": "prism",
+  "exit_code": 0,
+  "tests": 14,
+  "failures": 0,
+  "skipped": 13,
+  "elapsed_seconds": 2.721,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nPrismTest > simple path SKIPPED\n\nPrismTest > zero prisms PASSED\n\nPrismTest > upward reflection two hits SKIPPED\n\nPrismTest > going down zero hits SKIPPED\n\nPrismTest > complex path with multiple prisms floating point precision SKIPPED\n\nPrismTest > downward reflection two hits SKIPPED\n\nPrismTest > one prism hits zero SKIPPED\n\nPrismTest > one prism one hit SKIPPED\n\nPrismTest > same prism twice SKIPPED\n\nPrismTest > going up zero hits SKIPPED\n\nPrismTest > negative angle SKIPPED\n\nPrismTest > large angle SKIPPED\n\nPrismTest > going left zero hits SKIPPED\n\nPrismTest > multiple prisms floating point precision SKIPPED\n\nBUILD SUCCESSFUL in 2s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}

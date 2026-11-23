@@ -1,0 +1,3 @@
+Configlet cases: 14
+Java display cases: 14
+Two fresh offline syncs: identical metadata and Java test source.
