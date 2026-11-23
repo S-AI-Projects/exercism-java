@@ -1,0 +1,12 @@
+{
+  "exercise": "minesweeper",
+  "exit_code": 0,
+  "tests": 12,
+  "failures": 0,
+  "skipped": 11,
+  "failed_cases": [],
+  "elapsed_seconds": 57.953,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "Downloading https://services.gradle.org/distributions/gradle-8.7-bin.zip\n............10%.............20%.............30%.............40%............50%.............60%.............70%.............80%.............90%............100%\n\nWelcome to Gradle 8.7!\n\nHere are the highlights of this release:\n - Compiling and testing with Java 22\n - Cacheable Groovy script compilation\n - New methods in lazy collection properties\n\nFor more details see https://docs.gradle.org/8.7/release-notes.html\n\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nMinesweeperBoardTest > testInputBoardWithNoRowsAndNoColumns() PASSED\n\nMinesweeperBoardTest > testInputBoardWithSingleColumnAndTwoMinesAtEdges() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithSingleColumnAndTwoMines() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithOnlyMines() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithMinesInCross() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithMinesAroundPerimeter() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithSingleMineAtCenter() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithNoMines() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithOneRowAndNoColumns() SKIPPED\n\nMinesweeperBoardTest > testLargeInputBoard() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithSingleRowAndTwoMinesAtEdges() SKIPPED\n\nMinesweeperBoardTest > testInputBoardWithSingleRowAndTwoMines() SKIPPED\n\nBUILD SUCCESSFUL in 57s\n3 actionable tasks: 3 executed\n",
+  "stderr_tail": ""
+}

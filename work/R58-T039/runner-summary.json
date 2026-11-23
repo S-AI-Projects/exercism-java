@@ -1,0 +1,11 @@
+{
+  "reference_tests": 12,
+  "reference_failures": 0,
+  "mutant_failed_cases": [
+    "testInputBoardWithNoRowsAndNoColumns()",
+    "org.opentest4j.AssertionFailedError: \nexpected: []\n but was: [\"broken\"]\n\tat java.base@21.0.12.1/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n\tat java.base@21.0.12.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\n\tat app//MinesweeperBoardTest.testInputBoardWithNoRowsAndNoColumns(MinesweeperBoardTest.java:18)\n\tat java.base@21.0.12.1/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base@21.0.12.1/java.util.ArrayList.forEach(ArrayList.java:1596)\n\tat java.base@21.0.12.1/java.util.ArrayList.forEach(ArrayList.java:1596)\n"
+  ],
+  "zero_selection_tests": 0,
+  "zero_selection_exit_code": 1,
+  "learner_hashes_unchanged_in_all_scenarios": true
+}

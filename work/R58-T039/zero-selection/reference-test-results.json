@@ -1,0 +1,12 @@
+{
+  "exercise": "minesweeper",
+  "exit_code": 1,
+  "tests": 0,
+  "failures": 0,
+  "skipped": 0,
+  "failed_cases": [],
+  "elapsed_seconds": 2.397,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n> Task :test FAILED\n3 actionable tasks: 3 executed\n",
+  "stderr_tail": "\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':test'.\n> No tests found for given includes: [NoSuchMinesweeperCase](--tests filter)\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n> Get more help at https://help.gradle.org.\n\nBUILD FAILED in 1s\n"
+}
