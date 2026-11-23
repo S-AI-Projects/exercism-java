@@ -60,13 +60,15 @@ class ListOps {
     }
 
     static <T, U> U foldRight(final List<T> list, final U initial, final BiFunction<T, U, U> f) {
-        U acc = initial;
+        U accumulator = initial;
 
-        for (int i = list.size() - 1; i >= 0; i--) {
-            acc = f.apply(list.get(i), acc);
+        // A right fold applies the function from the last element back to the first.
+        for (int index = list.size() - 1; index >= 0; index--) {
+            final T element = list.get(index);
+            accumulator = f.apply(element, accumulator);
         }
 
-        return acc;
+        return accumulator;
     }
 
     private ListOps() {
