@@ -1,0 +1,12 @@
+{
+  "exercise": "pangram",
+  "exit_code": 0,
+  "tests": 10,
+  "failures": 0,
+  "skipped": 9,
+  "failed_cases": [],
+  "elapsed_seconds": 2.972,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nPangramCheckerTest > perfect lower case SKIPPED\n\nPangramCheckerTest > with numbers SKIPPED\n\nPangramCheckerTest > with underscores SKIPPED\n\nPangramCheckerTest > only lower case SKIPPED\n\nPangramCheckerTest > missing the letter 'x' SKIPPED\n\nPangramCheckerTest > missing the letter 'h' SKIPPED\n\nPangramCheckerTest > missing letters replaced by numbers SKIPPED\n\nPangramCheckerTest > empty sentence PASSED\n\nPangramCheckerTest > mixed case and punctuation SKIPPED\n\nPangramCheckerTest > case insensitive SKIPPED\n\nBUILD SUCCESSFUL in 2s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}
