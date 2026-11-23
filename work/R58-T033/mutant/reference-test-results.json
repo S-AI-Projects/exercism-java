@@ -1,0 +1,15 @@
+{
+  "exercise": "gigasecond",
+  "exit_code": 1,
+  "tests": 6,
+  "failures": 1,
+  "skipped": 5,
+  "failed_cases": [
+    "date only specification of time",
+    "org.opentest4j.AssertionFailedError: \nexpected: 2043-01-01T01:46:40 (java.time.LocalDateTime)\n but was: 2043-01-01T01:46:39 (java.time.LocalDateTime)\nwhen comparing values using 'ChronoLocalDateTime.timeLineOrder()'\n\tat java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\n\tat GigasecondTest.modernTime(GigasecondTest.java:18)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1596)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1596)\n"
+  ],
+  "elapsed_seconds": 2.295,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test FAILED\n\nGigasecondTest > full time specified SKIPPED\n\nGigasecondTest > date only specification of time FAILED\n    org.opentest4j.AssertionFailedError: \n    expected: 2043-01-01T01:46:40 (java.time.LocalDateTime)\n     but was: 2043-01-01T01:46:39 (java.time.LocalDateTime)\n    when comparing values using 'ChronoLocalDateTime.timeLineOrder()'\n        at java.base@21.0.12.1/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n        at java.base@21.0.12.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)\n        at app//GigasecondTest.modernTime(GigasecondTest.java:18)\n\nGigasecondTest > third test for date only specification of time SKIPPED\n\nGigasecondTest > second test for date only specification of time SKIPPED\n\nGigasecondTest > full time with day roll-over SKIPPED\n\nGigasecondTest > does not mutate the input SKIPPED\n3 actionable tasks: 3 executed\n",
+  "stderr_tail": "\n6 tests completed, 1 failed, 5 skipped\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':test'.\n> There were failing tests. See the report at: file:///private/var/folders/rm/xccq8ld93g3bwhwphfxsd6zc0000gn/T/sai-gigasecond-sl3au_26/gigasecond/build/reports/tests/test/index.html\n\n* Try:\n> Run with --scan to get full insights from a Build Scan (powered by Develocity).\n\nBUILD FAILED in 2s\n"
+}

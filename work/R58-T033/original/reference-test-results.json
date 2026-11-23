@@ -1,0 +1,12 @@
+{
+  "exercise": "gigasecond",
+  "exit_code": 0,
+  "tests": 6,
+  "failures": 0,
+  "skipped": 5,
+  "failed_cases": [],
+  "elapsed_seconds": 2.255,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nGigasecondTest > full time specified SKIPPED\n\nGigasecondTest > date only specification of time PASSED\n\nGigasecondTest > third test for date only specification of time SKIPPED\n\nGigasecondTest > second test for date only specification of time SKIPPED\n\nGigasecondTest > full time with day roll-over SKIPPED\n\nGigasecondTest > does not mutate the input SKIPPED\n\nBUILD SUCCESSFUL in 2s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}

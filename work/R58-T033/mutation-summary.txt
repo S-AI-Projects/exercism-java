@@ -1,0 +1,4 @@
+Original: 6 tests, 0 failures (pass).
+Mutant: 6 tests, 1 failures; rejected by modernTime.
+Mutation: plusSeconds(1000000000) -> plusSeconds(999999999).
+Diagnostic input/output: 2011-04-25 -> 2043-01-01T01:46:40; mutant -> 2043-01-01T01:46:39.
