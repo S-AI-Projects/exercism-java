@@ -1,0 +1,12 @@
+{
+  "exercise": "crypto-square",
+  "exit_code": 0,
+  "tests": 8,
+  "failures": 0,
+  "skipped": 7,
+  "failed_cases": [],
+  "elapsed_seconds": 2.426,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nCryptoSquareTest > Remove punctuation SKIPPED\n\nCryptoSquareTest > empty plaintext results in an empty ciphertext PASSED\n\nCryptoSquareTest > 54 character plaintext results in 8 chunks, the last two with trailing spaces SKIPPED\n\nCryptoSquareTest > normalization results in empty plaintext SKIPPED\n\nCryptoSquareTest > 9 character plaintext results in 3 chunks of 3 characters SKIPPED\n\nCryptoSquareTest > Remove spaces SKIPPED\n\nCryptoSquareTest > Lowercase SKIPPED\n\nCryptoSquareTest > 8 character plaintext results in 3 chunks, the last one with a trailing space SKIPPED\n\nBUILD SUCCESSFUL in 2s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}

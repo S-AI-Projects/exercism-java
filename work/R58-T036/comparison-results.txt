@@ -1,0 +1,8 @@
+PASS 0 chars -> 0 chars
+PASS 11 chars -> 0 chars
+PASS 1 chars -> 1 chars
+PASS 3 chars -> 1 chars
+PASS 5 chars -> 1 chars
+PASS 12 chars -> 11 chars
+PASS 10 chars -> 11 chars
+PASS 70 chars -> 63 chars
