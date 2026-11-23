@@ -1,0 +1,12 @@
+{
+  "exercise": "sum-of-multiples",
+  "exit_code": 0,
+  "tests": 16,
+  "failures": 0,
+  "skipped": 15,
+  "failed_cases": [],
+  "elapsed_seconds": 2.367,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nSumOfMultiplesTest > one factor is a multiple of another SKIPPED\n\nSumOfMultiplesTest > three factors SKIPPED\n\nSumOfMultiplesTest > much larger factors SKIPPED\n\nSumOfMultiplesTest > no multiples within limit PASSED\n\nSumOfMultiplesTest > the only multiple of 0 is 0 SKIPPED\n\nSumOfMultiplesTest > no factors means an empty sum SKIPPED\n\nSumOfMultiplesTest > more than one multiple within limit SKIPPED\n\nSumOfMultiplesTest > the factor 0 does not affect the sum of multiples of other factors SKIPPED\n\nSumOfMultiplesTest > all numbers are multiples of 1 SKIPPED\n\nSumOfMultiplesTest > more than one factor with multiples within limit SKIPPED\n\nSumOfMultiplesTest > one factor has multiples within limit SKIPPED\n\nSumOfMultiplesTest > a much larger limit SKIPPED\n\nSumOfMultiplesTest > each multiple is only counted once SKIPPED\n\nSumOfMultiplesTest > some pairs of factors relatively prime and some not SKIPPED\n\nSumOfMultiplesTest > factors not relatively prime SKIPPED\n\nSumOfMultiplesTest > solutions using include-exclude must extend to cardinality greater than 3 SKIPPED\n\nBUILD SUCCESSFUL in 2s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}
