@@ -1,0 +1,3 @@
+Canonical cases: 10
+Included: 10
+Excluded: 0

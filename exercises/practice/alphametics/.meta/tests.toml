@@ -4,12 +4,15 @@
 
 [e0c08b07-9028-4d5f-91e1-d178fead8e1a]
 description = "puzzle with three letters"
+comment = "Included: testThreeLetters verifies the unique mapping I=1, B=9, L=0 for I + BB == ILL; the leading letters are nonzero and the sum is 1 + 99 = 100."
 
 [a504ee41-cb92-4ec2-9f11-c37e95ab3f25]
 description = "solution must have unique value for each letter"
+comment = "Included: testUniqueValue requires A == B to be unsolvable because distinct letters must map to distinct digits."
 
 [4e3b81d2-be7b-4c5c-9a80-cd72bc6d465a]
 description = "leading zero solution is invalid"
+comment = "Included: testLeadingZero uses ACA + DD == BD; the units equation forces A to zero, but A leads ACA, so no valid assignment exists."
 
 [8a3e3168-d1ee-4df7-94c7-b9c54845ac3a]
 description = "puzzle with two digits final carry"
