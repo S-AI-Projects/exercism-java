@@ -1,0 +1,4 @@
+input_size,predicate_calls,kept_values,median_nanoseconds
+1000,1000,500,48209
+10000,10000,5000,336458
+100000,100000,50000,741583

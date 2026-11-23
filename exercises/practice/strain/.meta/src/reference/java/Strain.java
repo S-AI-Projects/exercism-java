@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 public class Strain {
 
     public static <T> List<T> keep(List<T> collection, Predicate<T> predicate) {
+        // One predicate call per input item gives keep linear time and space proportional to matches.
         return filter(collection, predicate);
     }
 

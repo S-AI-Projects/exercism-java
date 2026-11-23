@@ -1,0 +1,12 @@
+{
+  "exercise": "strain",
+  "exit_code": 0,
+  "tests": 12,
+  "failures": 0,
+  "skipped": 11,
+  "failed_cases": [],
+  "elapsed_seconds": 2.139,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nStrainTest > keepStrings SKIPPED\n\nStrainTest > emptyKeep PASSED\n\nStrainTest > discardNeitherFirstNorLast SKIPPED\n\nStrainTest > keepFirstAndLast SKIPPED\n\nStrainTest > discardFirstAndLast SKIPPED\n\nStrainTest > discardNothing SKIPPED\n\nStrainTest > keepArrays SKIPPED\n\nStrainTest > discardStrings SKIPPED\n\nStrainTest > keepEverything SKIPPED\n\nStrainTest > discardArrays SKIPPED\n\nStrainTest > keepNeitherFirstNorLast SKIPPED\n\nStrainTest > emptyDiscard SKIPPED\n\nBUILD SUCCESSFUL in 1s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}
