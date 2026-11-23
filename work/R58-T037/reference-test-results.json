@@ -1,0 +1,12 @@
+{
+  "exercise": "binary-search",
+  "exit_code": 0,
+  "tests": 11,
+  "failures": 0,
+  "skipped": 10,
+  "failed_cases": [],
+  "elapsed_seconds": 2.261,
+  "learner_hashes_unchanged": true,
+  "stdout_tail": "To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build \n> Task :compileJava\n> Task :processResources NO-SOURCE\n> Task :classes\n> Task :compileTestJava\n> Task :processTestResources NO-SOURCE\n> Task :testClasses\n\n> Task :test\n\nBinarySearchTest > identifies that a value is not included in the array SKIPPED\n\nBinarySearchTest > nothing is found when the left and right bounds cross SKIPPED\n\nBinarySearchTest > finds a value in an array with one element PASSED\n\nBinarySearchTest > finds a value in an array of odd length SKIPPED\n\nBinarySearchTest > finds a value at the end of an array SKIPPED\n\nBinarySearchTest > a value smaller than the array's smallest value is not found SKIPPED\n\nBinarySearchTest > finds a value in an array of even length SKIPPED\n\nBinarySearchTest > finds a value at the beginning of an array SKIPPED\n\nBinarySearchTest > nothing is found in an empty array SKIPPED\n\nBinarySearchTest > finds a value in the middle of an array SKIPPED\n\nBinarySearchTest > a value larger than the array's largest value is not found SKIPPED\n\nBUILD SUCCESSFUL in 1s\n3 actionable tasks: 3 executed\nConsider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.0/userguide/configuration_cache_enabling.html\n",
+  "stderr_tail": ""
+}
